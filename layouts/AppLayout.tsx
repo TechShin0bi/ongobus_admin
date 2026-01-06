@@ -14,18 +14,26 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
   // Zustand store hooks
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   
-  // Optional: Redirect logic if you want to force them to login page when not auth
   const router = useRouter();
   const pathname = usePathname();
 
   useEffect(() => {
-    // If not authenticated and trying to access a protected route (not login), redirect
-    if (!isAuthenticated && pathname !== '/auth/login') {
-      router.push('/auth/login');
+    // Define public routes that don't require authentication
+    // You might want to add '/auth/signup' or '/auth/forgot-password' here too
+    const publicRoutes = ['/auth/login'];
+
+    // If not authenticated and trying to access a protected route
+    if (!isAuthenticated && !publicRoutes.includes(pathname)) {
+      // Create the query parameter
+      const params = new URLSearchParams();
+      params.set("returnUrl", pathname);
+      
+      // Redirect with the returnUrl param
+      router.push(`/auth/login?${params.toString()}`);
     }
   }, [isAuthenticated, pathname, router]);
 
-  // --- Layout for Non-Authenticated Users (Login Page) ---
+  // --- Layout for Non-Authenticated Users ---
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen bg-gray-50">
@@ -39,10 +47,8 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
   // --- Layout for Authenticated Users (Dashboard) ---
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header is only shown if authenticated */}
       <Header toggleSidebar={() => setSidebarOpen(!isSidebarOpen)} />
 
-      {/* Sidebar is only shown if authenticated */}
       <Sidebar isOpen={isSidebarOpen} />
       
       <main

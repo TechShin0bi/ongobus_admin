@@ -1,24 +1,28 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { 
   Mail, Lock, Eye, EyeOff, ArrowRight, Bus, CheckCircle, Loader2, 
   Github
 } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import clsx from "clsx";
 import { useAuthStore } from "@/store/useAuthStore";
 
 export default function LoginPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const returnUrl = searchParams.get("returnUrl")
   const login = useAuthStore((state) => state.login);
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+    
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,7 +34,7 @@ export default function LoginPage() {
       
       if (success) {
         // Redirect handled by Layout effect, but explicit push is good practice
-        router.push("/");
+        router.push(returnUrl || "/");
       } else {
         setError("Invalid email or password. Try 'admin@buslink.com' / 'password123'");
       }
@@ -40,6 +44,12 @@ export default function LoginPage() {
       setIsLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      router.push(returnUrl || "/");
+    }
+  }, [isAuthenticated, returnUrl, router]);
 
   return (
     <div className="min-h-screen flex bg-gray-50">
