@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import { 
-  Mail, Lock, Eye, EyeOff, ArrowRight, Bus, Github, CheckCircle, Loader2 
+  Mail, Lock, Eye, EyeOff, ArrowRight, Bus, CheckCircle, Loader2, 
+  Github
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -169,38 +170,33 @@ export default function LoginPage() {
             </form>
 
             <div className="mt-6">
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-gray-300" />
-                </div>
-                <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white text-gray-500">Or continue with</span>
-                </div>
-              </div>
-
-              <div className="mt-6 grid grid-cols-2 gap-3">
-                <button className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 transition-colors">
-                  <svg className="h-5 w-5" aria-hidden="true" viewBox="0 0 24 24">
-                    <path d="M12.0003 20.45c-4.6667 0-8.45-3.7833-8.45-8.45 0-4.6667 3.7833-8.45 8.45-8.45 4.6667 0 8.45 3.7833 8.45 8.45 0 4.6667-3.7833 8.45-8.45 8.45z" fill="#fff" />
-                    <path d="M21.75 12.2c0-.7-.05-1.35-.15-2h-9.6v3.8h5.5c-.25 1.25-.95 2.3-2 3l3.2 2.5c1.9-1.75 3.05-4.35 3.05-7.3z" fill="#4285F4" />
-                    <path d="M12 22c2.7 0 4.95-.9 6.6-2.45l-3.2-2.5c-.9.6-2.05.95-3.4.95-2.6 0-4.8-1.75-5.6-4.1H3.1v2.6C4.85 20 8.15 22 12 22z" fill="#34A853" />
-                    <path d="M6.4 13.9c-.2-.6-.35-1.25-.35-1.9s.15-1.3.35-1.9V7.5H3.1C1.65 10.4 1.65 13.6 3.1 16.5l3.3-2.6z" fill="#FBBC05" />
-                    <path d="M12 5.75c1.5 0 2.85.5 3.9 1.5l2.95-2.95C17.15 2.65 14.7 1.75 12 1.75c-3.85 0-7.15 2-8.9 5.75l3.3 2.6c.8-2.35 3-4.1 5.6-4.1z" fill="#EA4335" />
-                  </svg>
-                  <span className="sr-only">Sign in with Google</span>
+              <div className="flex flex-col space-y-3">
+                <button
+                  onClick={() => {
+                    setEmail('admin@buslink.com');
+                    setPassword('password123');
+                  }}
+                  className="w-full flex justify-center items-center gap-2 py-2.5 px-4 border border-indigo-200 rounded-lg shadow-sm text-sm font-medium text-indigo-700 bg-indigo-50 hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all"
+                >
+                  Login as Admin
                 </button>
-                <button className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 transition-colors">
-                  <Github className="h-5 w-5" />
-                  <span className="sr-only">Sign in with GitHub</span>
+                <button
+                  onClick={() => {
+                    setEmail('john@example.com');
+                    setPassword('password123');
+                  }}
+                  className="w-full flex justify-center items-center gap-2 py-2.5 px-4 border border-gray-200 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all"
+                >
+                  Login as User
                 </button>
               </div>
             </div>
 
             <p className="mt-8 text-center text-sm text-gray-600">
-               Don't have an account?{' '}
-               <Link href="/signup" className="font-semibold text-indigo-600 hover:text-indigo-500">
-                  Sign up
-               </Link>
+              Don't have an account?{' '}
+              <Link href="/signup" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                Sign up
+              </Link>
             </p>
           </div>
         </div>
