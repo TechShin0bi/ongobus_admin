@@ -151,7 +151,7 @@ export default function LoginForm() {
 
             <div className="text-sm">
               <Link
-                href="/forgot-password"
+                href="/auth/forgot-password"
                 className="font-medium text-indigo-600 hover:text-indigo-500"
               >
                 {t('forgotPassword')}

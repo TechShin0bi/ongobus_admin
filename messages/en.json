@@ -43,5 +43,86 @@
     "liveActivity": "Live Activity",
     "support": "Support",
     "settings": "Settings"
+  },
+  "Dashboard": {
+    "title": "Overview Dashboard",
+    "dateRange": "{startDate} - {endDate}",
+    "exportData": "Export Data",
+    "stats": {
+      "totalBookingsToday": "Total Bookings (Today)",
+      "totalBookingsWeek": "Total Bookings (Week)",
+      "totalBookingsMonth": "Total Bookings (Month)",
+      "totalRevenue": "Total Revenue"
+    },
+    "liveSeatAvailability": "Live Seat Availability",
+    "activeBuses": "Active Buses",
+    "onRoad": "On Road",
+    "inMaintenance": "In Maintenance",
+    "activeRoutes": "Active Routes",
+    "highDemand": "High Demand",
+    "normal": "Normal",
+    "bookingsOverTime": "Bookings Over Time",
+    "revenueByRoute": "Revenue by Route",
+    "popularBuses": "Popular Buses",
+    "upcomingDepartures": "Upcoming Departures",
+    "upcomingDeparturesDescription": "Real-time updates on scheduled bus departures.",
+    "time": "Time",
+    "route": "Route",
+    "busId": "Bus ID",
+    "agency": "Agency",
+    "seats": "Seats",
+    "status": "Status",
+    "onTime": "On Time",
+    "delayed": "Delayed",
+    "fromLastMonth": "from last month",
+    "available": "{current} / {total} Available"
+  },
+  "bookings": {
+    "title": "Bookings Management",
+    "description": "View, search, filter, and manage all bus ticket bookings within the system.",
+    "allBookings": "All Bookings",
+    "manageBookings": "Manage and view all bus ticket bookings.",
+    "noBookingSelected": "No Booking Selected",
+    "selectBookingPrompt": "Select a booking from the table to view quick details and actions here.",
+    "bookingsSelected": "{count} Booking(s) Selected",
+    "chooseAction": "Choose an action to apply.",
+    "clearFilters": "Clear Filters",
+    "bulkActions": "Bulk Actions",
+    "downloadReport": "Download Report",
+    "searchPlaceholder": "Search bookings...",
+    "applyFilters": "Apply Filters",
+    "quickActions": "Quick Actions",
+    "confirmSelection": "Confirm Selection",
+    "cancelBookings": "Cancel Bookings",
+    "exportDetails": "Export Details",
+    "pagination": {
+      "showing": "Showing",
+      "of": "of",
+      "bookings": "bookings",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "table": {
+      "bookingId": "Booking ID",
+      "passenger": "Passenger",
+      "route": "Route",
+      "travelDate": "Travel Date",
+      "busNo": "Bus No.",
+      "seats": "Seats",
+      "agency": "Agency",
+      "status": "Status"
+    },
+    "filters": {
+      "travelDate": "Travel Date",
+      "route": "Route",
+      "bus": "Bus",
+      "agency": "Agency",
+      "status": "Status"
+    },
+    "status": {
+      "confirmed": "Confirmed",
+      "pending": "Pending",
+      "cancelled": "Cancelled"
+    }
   }
 }

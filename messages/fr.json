@@ -44,5 +44,87 @@
     "liveActivity": "Activité en direct",
     "support": "Support",
     "settings": "Paramètres"
+  },
+  "Dashboard": {
+    "title": "Vue d'ensemble du tableau de bord",
+    "dateRange": "{startDate} - {endDate}",
+    "exportData": "Exporter les données",
+    "stats": {
+      "totalBookingsToday": "Réservations totales (Aujourd'hui)",
+      "totalBookingsWeek": "Réservations totales (Semaine)",
+      "totalBookingsMonth": "Réservations totales (Mois)",
+      "totalRevenue": "Revenu total"
+    },
+    "liveSeatAvailability": "Disponibilité des places en direct",
+    "activeBuses": "Bus actifs",
+    "onRoad": "Sur la route",
+    "inMaintenance": "En maintenance",
+    "activeRoutes": "Itinéraires actifs",
+    "highDemand": "Forte demande",
+    "normal": "Normal",
+    "bookingsOverTime": "Réservations dans le temps",
+    "revenueByRoute": "Revenu par itinéraire",
+    "popularBuses": "Bus populaires",
+    "upcomingDepartures": "Départs à venir",
+    "upcomingDeparturesDescription": "Mises à jour en temps réel sur les départs de bus prévus.",
+    "time": "Heure",
+    "route": "Itinéraire",
+    "busId": "ID du bus",
+    "agency": "Agence",
+    "seats": "Places",
+    "status": "Statut",
+    "onTime": "À l'heure",
+    "delayed": "Retardé",
+    "fromLastMonth": "par rapport au mois dernier",
+    "available": "{current} / {total} Disponible"
+  },
+
+    "bookings": {
+    "title": "Gestion des Réservations",
+    "description": "Affichez, recherchez, filtrez et gérez toutes les réservations de billets de bus dans le système.",
+    "allBookings": "Toutes les Réservations",
+    "manageBookings": "Gérez et visualisez toutes les réservations de billets de bus.",
+    "noBookingSelected": "Aucune Réservation Sélectionnée",
+    "selectBookingPrompt": "Sélectionnez une réservation dans le tableau pour afficher les détails et les actions rapides ici.",
+    "bookingsSelected": "{count} Réservation(s) Sélectionnée(s)",
+    "chooseAction": "Choisissez une action à appliquer.",
+    "clearFilters": "Réinitialiser les Filtres",
+    "bulkActions": "Actions Groupées",
+    "downloadReport": "Télécharger le Rapport",
+    "searchPlaceholder": "Rechercher des réservations...",
+    "applyFilters": "Appliquer les Filtres",
+    "quickActions": "Actions Rapides",
+    "confirmSelection": "Confirmer la Sélection",
+    "cancelBookings": "Annuler les Réservations",
+    "exportDetails": "Exporter les Détails",
+    "pagination": {
+      "showing": "Affichage de",
+      "of": "sur",
+      "bookings": "réservations",
+      "previous": "Précédent",
+      "next": "Suivant"
+    },
+    "table": {
+      "bookingId": "N° de Réservation",
+      "passenger": "Passager",
+      "route": "Trajet",
+      "travelDate": "Date de Voyage",
+      "busNo": "N° de Bus",
+      "seats": "Sièges",
+      "agency": "Agence",
+      "status": "Statut"
+    },
+    "filters": {
+      "travelDate": "Date de Voyage",
+      "route": "Trajet",
+      "bus": "Bus",
+      "agency": "Agence",
+      "status": "Statut"
+    },
+    "status": {
+      "confirmed": "Confirmé",
+      "pending": "En Attente",
+      "cancelled": "Annulé"
+    }
   }
 }
