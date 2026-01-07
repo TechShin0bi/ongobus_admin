@@ -24,5 +24,17 @@
     "copyright": "© 2026 BusLink Inc.",
     "invalidCredentials": "Invalid email or password. Try 'admin@buslink.com' / 'password123'",
     "unexpectedError": "An unexpected error occurred."
+  },
+  "Sidebar": {
+    "dashboard": "Dashboard",
+    "bookings": "Bookings",
+    "buses": "Buses",
+    "routesSchedules": "Routes & Schedules",
+    "pricingSeats": "Pricing & Seats",
+    "agenciesUsers": "Agencies & Users",
+    "payments": "Payments",
+    "liveActivity": "Live Activity",
+    "support": "Support",
+    "settings": "Settings"
   }
 }

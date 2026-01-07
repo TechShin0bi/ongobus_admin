@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { 
   LayoutDashboard, Ticket, Bus, Map, Tag, Users, 
   CreditCard, Activity, HelpCircle, Settings 
@@ -8,26 +7,28 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { clsx } from "clsx";
+import { useTranslations } from "next-intl";
 
 interface SidebarProps {
   isOpen: boolean;
 }
 
-const MENU_ITEMS = [
-  { name: "Dashboard", icon: LayoutDashboard, href: "/" },
-  { name: "Bookings", icon: Ticket, href: "/bookings" },
-  { name: "Buses", icon: Bus, href: "/buses" },
-  { name: "Routes & Schedules", icon: Map, href: "/routes" },
-  { name: "Pricing & Seats", icon: Tag, href: "/pricing" },
-  { name: "Agencies & Users", icon: Users, href: "/agencies" },
-  { name: "Payments", icon: CreditCard, href: "/payments" },
-  { name: "Live Activity", icon: Activity, href: "/live" },
-  { name: "Support", icon: HelpCircle, href: "/support" },
-  { name: "Settings", icon: Settings, href: "/settings" },
-];
 
 export default function Sidebar({ isOpen }: SidebarProps) {
   const pathname = usePathname();
+  const t = useTranslations('Sidebar');
+  const MENU_ITEMS = [
+    { key: t("dashboard"), icon: LayoutDashboard, href: "/" },
+    { key: t("bookings"), icon: Ticket, href: "/bookings" },
+    { key: t("buses"), icon: Bus, href: "/buses" },
+    { key: t("routesSchedules"), icon: Map, href: "/routes" },
+    { key: t("pricingSeats"), icon: Tag, href: "/pricing" },
+    { key: t("agenciesUsers"), icon: Users, href: "/agencies" },
+    { key: t("payments"), icon: CreditCard, href: "/payments" },
+    { key: t("liveActivity"), icon: Activity, href: "/live" },
+    { key: t("support"), icon: HelpCircle, href: "/support" },
+    { key: t("settings"), icon: Settings, href: "/settings" },
+  ];
 
   return (
     <aside
@@ -41,7 +42,7 @@ export default function Sidebar({ isOpen }: SidebarProps) {
           {MENU_ITEMS.map((item) => {
             const isActive = pathname === item.href;
             return (
-              <li key={item.name}>
+              <li key={item.key}>
                 <Link
                   href={item.href}
                   className={clsx(
@@ -58,7 +59,7 @@ export default function Sidebar({ isOpen }: SidebarProps) {
                     )}
                   />
                   <span className={clsx("ml-3 whitespace-nowrap", !isOpen && "lg:hidden")}>
-                    {item.name}
+                    {item.key}
                   </span>
                 </Link>
               </li>

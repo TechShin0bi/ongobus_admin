@@ -22,8 +22,20 @@
     "trackingDescription": "Surveillez les positions des bus en temps réel.",
     "automatedPayments": "Paiements automatisés",
     "paymentsDescription": "Rapprochements et paiements transparents.",
-    "copyright": " 2026 BusLink Inc.",
+    "copyright": "© 2026 BusLink Inc.",
     "invalidCredentials": "E-mail ou mot de passe invalide. Essayez 'admin@buslink.com' / 'password123'",
     "unexpectedError": "Une erreur inattendue s'est produite."
+  },
+  "Sidebar": {
+    "dashboard": "Tableau de bord",
+    "bookings": "Réservations",
+    "buses": "Bus",
+    "routesSchedules": "Itinéraires & Horaires",
+    "pricingSeats": "Tarifs & Places",
+    "agenciesUsers": "Agences & Utilisateurs",
+    "payments": "Paiements",
+    "liveActivity": "Activité en direct",
+    "support": "Support",
+    "settings": "Paramètres"
   }
 }
