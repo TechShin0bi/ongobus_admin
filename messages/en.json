@@ -5,7 +5,7 @@
   "Login": {
     "welcomeBack": "Welcome back",
     "enterDetails": "Please enter your details to sign in.",
-    "noAccount": "Don't have an account?",  
+    "noAccount": "Don't have an account?",
     "emailLabel": "Email address",
     "emailPlaceholder": "admin@buslink.com",
     "passwordLabel": "Password",
@@ -24,6 +24,13 @@
     "copyright": "© 2026 BusLink Inc.",
     "invalidCredentials": "Invalid email or password. Try 'admin@buslink.com' / 'password123'",
     "unexpectedError": "An unexpected error occurred."
+  },
+  "Header": {
+    "openSidebar": "Open sidebar",
+    "searchPlaceholder": "Search...",
+    "profile": "Profile",
+    "settings": "Settings",
+    "signOut": "Sign out"
   },
   "Sidebar": {
     "dashboard": "Dashboard",

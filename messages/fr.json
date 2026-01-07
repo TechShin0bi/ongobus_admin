@@ -26,6 +26,13 @@
     "invalidCredentials": "E-mail ou mot de passe invalide. Essayez 'admin@buslink.com' / 'password123'",
     "unexpectedError": "Une erreur inattendue s'est produite."
   },
+  "Header": {
+    "openSidebar": "Ouvrir la barre latérale",
+    "searchPlaceholder": "Rechercher...",
+    "profile": "Profil",
+    "settings": "Paramètres",
+    "signOut": "Se déconnecter"
+  },
   "Sidebar": {
     "dashboard": "Tableau de bord",
     "bookings": "Réservations",

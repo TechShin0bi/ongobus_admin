@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Menu, Bell, Search, ChevronDown, User, Bus } from "lucide-react";
 import { useAuthStore } from "@/store/useAuthStore";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 interface HeaderProps {
   toggleSidebar: () => void;
@@ -12,6 +13,9 @@ interface HeaderProps {
 export default function Header({ toggleSidebar }: HeaderProps) {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const logout = useAuthStore((state) => state.logout);
+  
+  // 1. Initialize the translation hook (Namespace: 'Header')
+  const t = useTranslations('Header');
 
   return (
     <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200">
@@ -24,7 +28,7 @@ export default function Header({ toggleSidebar }: HeaderProps) {
               type="button"
               className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
             >
-              <span className="sr-only">Open sidebar</span>
+              <span className="sr-only">{t('openSidebar')}</span>
               <Menu className="w-6 h-6" />
             </button>
             <a href="#" className="flex ms-2 md:me-24 items-center">
@@ -47,7 +51,7 @@ export default function Header({ toggleSidebar }: HeaderProps) {
               <input
                 type="text"
                 className="block w-64 p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-indigo-500 focus:border-indigo-500"
-                placeholder="Search..."
+                placeholder={t('searchPlaceholder')}
               />
             </div>
 
@@ -80,12 +84,12 @@ export default function Header({ toggleSidebar }: HeaderProps) {
                   <ul className="py-2 text-sm text-gray-700">
                     <li>
                       <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-                        Profile
+                        {t('profile')}
                       </a>
                     </li>
                     <li>
                       <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-                        Settings
+                        {t('settings')}
                       </a>
                     </li>
                   </ul>
@@ -98,7 +102,7 @@ export default function Header({ toggleSidebar }: HeaderProps) {
                       }}
                       className="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
                     >
-                      Sign out
+                      {t('signOut')}
                     </Link>
                   </div>
                 </div>
