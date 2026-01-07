@@ -1,0 +1,29 @@
+{
+  "HomePage": {
+    "title": "Bonjour le monde!"
+  },
+  "Login": {
+    "welcomeBack": "Content de vous revoir",
+    "enterDetails": "Veuillez entrer vos informations pour vous connecter.",
+    "noAccount": "Vous n'avez pas de compte ?",
+    "signUp": "S'inscrire",
+    "emailLabel": "Adresse e-mail",
+    "emailPlaceholder": "admin@buslink.com",
+    "passwordLabel": "Mot de passe",
+    "passwordPlaceholder": "motdepasse123",
+    "rememberMe": "Se souvenir de moi pendant 30 jours",
+    "forgotPassword": "Mot de passe oublié ?",
+    "signIn": "Se connecter",
+    "loginAsAdmin": "Connexion en tant qu'administrateur",
+    "loginAsUser": "Connexion en tant qu'utilisateur",
+    "manageFleet": "Gérez votre flotte efficacement.",
+    "buslinkDescription": "BusLink fournit un tableau de bord complet pour gérer les itinéraires, suivre les paiements, surveiller les bus et gérer les demandes d'assistance - le tout en un seul endroit.",
+    "realTimeTracking": "Suivi en temps réel",
+    "trackingDescription": "Surveillez les positions des bus en temps réel.",
+    "automatedPayments": "Paiements automatisés",
+    "paymentsDescription": "Rapprochements et paiements transparents.",
+    "copyright": " 2026 BusLink Inc.",
+    "invalidCredentials": "E-mail ou mot de passe invalide. Essayez 'admin@buslink.com' / 'password123'",
+    "unexpectedError": "Une erreur inattendue s'est produite."
+  }
+}

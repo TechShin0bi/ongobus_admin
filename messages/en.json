@@ -1,0 +1,28 @@
+{
+  "HomePage": {
+    "title": "Hello world!"
+  },
+  "Login": {
+    "welcomeBack": "Welcome back",
+    "enterDetails": "Please enter your details to sign in.",
+    "noAccount": "Don't have an account?",  
+    "emailLabel": "Email address",
+    "emailPlaceholder": "admin@buslink.com",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "password123",
+    "rememberMe": "Remember for 30 days",
+    "forgotPassword": "Forgot password?",
+    "signIn": "Sign in",
+    "loginAsAdmin": "Login as Admin",
+    "loginAsUser": "Login as User",
+    "manageFleet": "Manage your fleet efficiently.",
+    "buslinkDescription": "BusLink provides a comprehensive dashboard to manage routes, track payments, monitor buses, and handle support tickets—all in one place.",
+    "realTimeTracking": "Real-time Tracking",
+    "trackingDescription": "Monitor bus locations instantly.",
+    "automatedPayments": "Automated Payments",
+    "paymentsDescription": "Seamless reconciliations & payouts.",
+    "copyright": "© 2026 BusLink Inc.",
+    "invalidCredentials": "Invalid email or password. Try 'admin@buslink.com' / 'password123'",
+    "unexpectedError": "An unexpected error occurred."
+  }
+}
