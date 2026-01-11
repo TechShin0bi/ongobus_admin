@@ -1,9 +1,11 @@
 "use client";
 
 import { AuthHeader, AuthLayoutSide, EmailForm, SuccessMessage } from "@/components/auth/password-forgot";
+import { useTranslations } from "next-intl";
 import React, { useState } from "react";
 
 export default function ForgotPasswordPage() {
+  const t = useTranslations("ForgotPassword");
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -27,10 +29,8 @@ export default function ForgotPasswordPage() {
         <div className="mx-auto w-full max-w-sm lg:w-96">
           
           <AuthHeader 
-            title="Reset Password"
-            subtitle="Enter the email associated with your account and we'll send you a link to reset your password."
-            backLink="/login"
-            backText="Back to Login"
+            title={t('title')}
+            subtitle={t('subtitle')}
           />
 
           {isSuccess ? (
@@ -49,9 +49,9 @@ export default function ForgotPasswordPage() {
 
           <div className="mt-8 border-t border-gray-100 pt-6">
             <p className="text-center text-xs text-gray-500">
-              Having trouble?{" "}
+              {t('havingTrouble')}{" "}
               <a href="#" className="font-medium text-indigo-600 hover:underline">
-                Contact Support
+                {t('contactSupport')}
               </a>
             </p>
           </div>

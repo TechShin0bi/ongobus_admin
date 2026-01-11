@@ -1,24 +1,13 @@
-import Link from "next/link";
-import { ArrowLeft, Bus } from "lucide-react";
+import { Bus } from "lucide-react";
 
 interface AuthHeaderProps {
   title: string;
   subtitle: string;
-  backLink: string;
-  backText: string;
 }
 
-export const AuthHeader = ({ title, subtitle, backLink, backText }: AuthHeaderProps) => {
+export const AuthHeader = ({ title, subtitle }: AuthHeaderProps) => {
   return (
     <div className="mb-8">
-      <Link
-        href={backLink}
-        className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors mb-8 group"
-      >
-        <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-        {backText}
-      </Link>
-
       <div className="flex items-center gap-2 mb-6">
         <div className="bg-indigo-600 p-2 rounded-lg">
           <Bus className="w-6 h-6 text-white" />

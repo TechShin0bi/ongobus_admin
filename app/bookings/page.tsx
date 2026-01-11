@@ -3,9 +3,11 @@
 import { BookingActionBar, BookingFilterBar, BookingTable } from "@/components/bookings";
 import { QuickActionsPanel } from "@/components/bookings/QuickActionsPanel";
 import { BOOKINGS_DATA } from "@/data/bookings";
-import React, { useState } from "react";
+import { useTranslations } from "next-intl";
+import { useState } from "react";
 
 export default function BookingsManagement() {
+  const t = useTranslations("bookings");
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
 
   // Logic: Toggle single row
@@ -32,9 +34,9 @@ export default function BookingsManagement() {
     <div>
       {/* 1. Page Header */}
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-900">Bookings Management</h1>
-        <p className="text-sm text-gray-500 mt-1">
-          View, search, filter, and manage all bus ticket bookings within the system.
+                <h1 className="text-2xl font-bold text-gray-900">{t('title')}</h1>
+                <p className="text-sm text-gray-500 mt-1">
+          {t('description')}
         </p>
       </div>
 

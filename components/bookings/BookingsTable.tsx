@@ -25,6 +25,11 @@ export const BookingTable = ({ bookings, selectedIds, onToggleSelection, onToggl
 
   const t = useTranslations('bookings');
 
+  const getStatusTranslationKey = (status: Booking['status']) => {
+    const key = `status.${status.toLowerCase()}` as 'status.confirmed' | 'status.pending' | 'status.cancelled';
+    return key;
+  };
+
   return (
     <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
       <div className="p-5 border-b border-gray-200">
@@ -88,8 +93,8 @@ export const BookingTable = ({ bookings, selectedIds, onToggleSelection, onToggl
                 <td className="px-6 py-4 font-medium text-gray-900">{booking.seats.join(', ')}</td>
                 <td className="px-6 py-4">{booking.agency}</td>
                 <td className="px-6 py-4">
-                  <span className={clsx("px-2.5 py-1 rounded-full text-xs font-medium", getStatusBadge(booking.status))}>
-                    {booking.status}
+                                    <span className={clsx("px-2.5 py-1 rounded-full text-xs font-medium", getStatusBadge(booking.status))}>
+                    {t(getStatusTranslationKey(booking.status))}
                   </span>
                 </td>
               </tr>

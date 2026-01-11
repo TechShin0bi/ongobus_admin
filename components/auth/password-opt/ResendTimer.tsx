@@ -2,8 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import { RefreshCw } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export const ResendTimer = () => {
+  const t = useTranslations("OtpVerification.ResendTimer");
   const [timer, setTimer] = useState(30);
 
   useEffect(() => {
@@ -21,10 +23,10 @@ export const ResendTimer = () => {
 
   return (
     <div className="flex items-center justify-between text-sm">
-      <p className="text-gray-500">Didn't receive code?</p>
+            <p className="text-gray-500">{t('noCode')}</p>
       {timer > 0 ? (
-        <span className="text-gray-400 font-medium">
-          Resend in 00:{timer.toString().padStart(2, "0")}
+                <span className="text-gray-400 font-medium">
+          {t('resendIn', { time: timer.toString().padStart(2, "0") })}
         </span>
       ) : (
         <button
@@ -32,7 +34,7 @@ export const ResendTimer = () => {
           onClick={handleResend}
           className="flex items-center gap-1 font-medium text-indigo-600 hover:text-indigo-500"
         >
-          <RefreshCw className="w-3 h-3" /> Resend
+                    <RefreshCw className="w-3 h-3" /> {t('resendButton')}
         </button>
       )}
     </div>

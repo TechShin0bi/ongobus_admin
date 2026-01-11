@@ -6,8 +6,10 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight, Bus } from "lucide-react";
 import clsx from "clsx";
 import { BrandingPanel, OtpInputGroup, ResendTimer, SuccessState } from "@/components/auth/password-opt";
+import { useTranslations } from "next-intl";
 
 export default function OtpVerificationPage() {
+  const t = useTranslations("OtpVerification");
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -38,7 +40,7 @@ export default function OtpVerificationPage() {
               className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors mb-8 group"
             >
               <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-              Back to Login
+              {t('backToLogin')}
             </Link>
 
             <div className="flex items-center gap-2 mb-6">
@@ -49,10 +51,10 @@ export default function OtpVerificationPage() {
             </div>
 
             <h2 className="text-3xl font-bold tracking-tight text-gray-900">
-              Verify your identity
+              {t('verifyIdentityTitle')}
             </h2>
             <p className="mt-2 text-sm text-gray-600">
-              We've sent a 6-digit code to <span className="font-semibold text-gray-900">user@example.com</span>.
+              {t('codeSentMessage')} <span className="font-semibold text-gray-900">user@example.com</span>.
             </p>
           </div>
 
@@ -78,7 +80,7 @@ export default function OtpVerificationPage() {
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                 ) : (
                   <>
-                    Verify Email <ArrowRight className="w-4 h-4" />
+                    {t('verifyEmailButton')} <ArrowRight className="w-4 h-4" />
                   </>
                 )}
               </button>
@@ -87,9 +89,9 @@ export default function OtpVerificationPage() {
 
           <div className="mt-8 border-t border-gray-100 pt-6 text-center">
             <p className="text-xs text-gray-500">
-              Wrong email?{" "}
+              {t('wrongEmailPrompt')}{" "}
               <Link href="/login" className="font-medium text-indigo-600 hover:underline">
-                Change email address
+                {t('changeEmailLink')}
               </Link>
             </p>
           </div>

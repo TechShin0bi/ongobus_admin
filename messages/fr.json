@@ -126,5 +126,42 @@
       "pending": "En Attente",
       "cancelled": "Annulé"
     }
+  },
+  "ForgotPassword": {
+    "title": "Réinitialiser le mot de passe",
+    "subtitle": "Entrez l'e-mail associé à votre compte et nous vous enverrons un lien pour réinitialiser votre mot de passe.",
+    "emailLabel": "Adresse e-mail",
+    "emailPlaceholder": "Entrez votre e-mail",
+    "sendResetLink": "Envoyer le lien de réinitialisation",
+    "checkYourEmail": "Vérifiez votre e-mail",
+    "resetLinkSent": "Nous avons envoyé un lien de réinitialisation de mot de passe à <bold>{email}</bold>.",
+    "resendEmail": "Cliquez pour renvoyer l'e-mail",
+    "backToSignIn": "Retour à la connexion",
+    "havingTrouble": "Vous avez des problèmes ?",
+    "contactSupport": "Contacter le support",
+    "secureAccountTitle": "Sécurisez votre compte",
+    "secureAccountDescription": "Nous utilisons un cryptage standard de l'industrie pour protéger vos données. La réinitialisation régulière de votre mot de passe contribue à maintenir la sécurité de votre compte."
+  },
+  "OtpVerification": {
+    "backToLogin": "Retour à la connexion",
+    "verifyIdentityTitle": "Vérifiez votre identité",
+    "codeSentMessage": "Nous avons envoyé un code à 6 chiffres à",
+    "verifyEmailButton": "Vérifier l'e-mail",
+    "wrongEmailPrompt": "Mauvais e-mail ?",
+    "changeEmailLink": "Changer d'adresse e-mail",
+    "BrandingPanel": {
+      "title": "Sécurité à deux facteurs",
+      "description": "La vérification nous aide à nous assurer que vous êtes bien qui vous prétendez être. Cette étape supplémentaire protège votre compte contre les accès non autorisés."
+    },
+    "ResendTimer": {
+      "noCode": "Vous n'avez pas reçu le code ?",
+      "resendIn": "Renvoyer dans 00:{time}",
+      "resendButton": "Renvoyer"
+    },
+    "SuccessState": {
+      "title": "Vérifié avec succès !",
+      "description": "Votre e-mail a été vérifié. Vous allez être redirigé sous peu.",
+      "dashboardButton": "Aller au tableau de bord"
+    }
   }
 }

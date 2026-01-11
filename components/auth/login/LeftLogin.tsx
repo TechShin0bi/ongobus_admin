@@ -1,5 +1,4 @@
 import { Bus } from "lucide-react";
-import Link from "next/link";
 import React from "react";
 import { useTranslations } from "next-intl";
 
@@ -14,7 +13,7 @@ function LeftLogin({
   return (
     <>
       <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24 bg-white border-r border-gray-100">
-        <div className="mx-auto w-full max-w-sm lg:w-96">
+        <div className="mx-auto w-full max-w-2xl lg:w-[500px]">
           <div className="mb-10">
             <div className="flex items-center gap-2 mb-6">
               <div className="bg-indigo-600 p-2 rounded-lg">

@@ -1,6 +1,7 @@
 import React from "react";
 import { Mail, ArrowRight } from "lucide-react";
 import clsx from "clsx";
+import { useTranslations } from "next-intl";
 
 interface EmailFormProps {
   email: string;
@@ -10,11 +11,12 @@ interface EmailFormProps {
 }
 
 export const EmailForm = ({ email, isLoading, onEmailChange, onSubmit }: EmailFormProps) => {
+  const t = useTranslations("ForgotPassword");
   return (
     <form onSubmit={onSubmit} className="space-y-6">
       <div>
         <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-          Email address
+          {t('emailLabel')}
         </label>
         <div className="mt-1 relative rounded-md shadow-sm">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -29,7 +31,7 @@ export const EmailForm = ({ email, isLoading, onEmailChange, onSubmit }: EmailFo
             value={email}
             onChange={(e) => onEmailChange(e.target.value)}
             className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-            placeholder="Enter your email"
+            placeholder={t('emailPlaceholder')}
           />
         </div>
       </div>
@@ -46,7 +48,7 @@ export const EmailForm = ({ email, isLoading, onEmailChange, onSubmit }: EmailFo
           <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
         ) : (
           <>
-            Send Reset Link <ArrowRight className="w-4 h-4" />
+            {t('sendResetLink')} <ArrowRight className="w-4 h-4" />
           </>
         )}
       </button>

@@ -124,5 +124,42 @@
       "pending": "Pending",
       "cancelled": "Cancelled"
     }
+  },
+  "ForgotPassword": {
+    "title": "Reset Password",
+    "subtitle": "Enter the email associated with your account and we'll send you a link to reset your password.",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "Enter your email",
+    "sendResetLink": "Send Reset Link",
+    "checkYourEmail": "Check your email",
+    "resetLinkSent": "We have sent a password reset link to <bold>{email}</bold>.",
+    "resendEmail": "Click to resend email",
+    "backToSignIn": "Back to Sign In",
+    "havingTrouble": "Having trouble?",
+    "contactSupport": "Contact Support",
+    "secureAccountTitle": "Secure your account",
+    "secureAccountDescription": "We use industry-standard encryption to keep your data safe. Resetting your password regularly helps maintain account security."
+  },
+  "OtpVerification": {
+    "backToLogin": "Back to Login",
+    "verifyIdentityTitle": "Verify your identity",
+    "codeSentMessage": "We've sent a 6-digit code to",
+    "verifyEmailButton": "Verify Email",
+    "wrongEmailPrompt": "Wrong email?",
+    "changeEmailLink": "Change email address",
+    "BrandingPanel": {
+      "title": "Two-Factor Security",
+      "description": "Verification helps us ensure that you are really who you say you are. This extra step protects your account from unauthorized access."
+    },
+    "ResendTimer": {
+      "noCode": "Didn't receive code?",
+      "resendIn": "Resend in 00:{time}",
+      "resendButton": "Resend"
+    },
+    "SuccessState": {
+      "title": "Verified Successfully!",
+      "description": "Your email has been verified. You will be redirected shortly.",
+      "dashboardButton": "Go to Dashboard"
+    }
   }
 }
