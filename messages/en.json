@@ -161,5 +161,283 @@
       "description": "Your email has been verified. You will be redirected shortly.",
       "dashboardButton": "Go to Dashboard"
     }
+  },
+  "Profile": {
+    "title": "Admin Profile",
+    "description": "Manage your profile, settings, and activity.",
+    "personalInfo": "Personal Information",
+    "edit": "Edit",
+    "fullName": "Full Name",
+    "emailAddress": "Email Address",
+    "role": "Role",
+    "security": "Security",
+    "changePassword": "Change Password",
+    "recentActivity": "Recent Activity"
+  },
+  "Buses": {
+    "title": "Buses Management",
+    "busFleet": "Bus Fleet",
+    "addNewBus": "Add New Bus",
+    "searchPlaceholder": "Search buses...",
+    "allBusTypes": "All Bus Types",
+    "allAgencies": "All Agencies",
+    "seats": "seats",
+    "busDetails": {
+      "title": "Bus Details",
+      "description": "Manage comprehensive information for the selected bus.",
+      "regNumber": "Registration Number",
+      "busType": "Bus Type",
+      "capacity": "Seating Capacity",
+      "agency": "Assigned Agency",
+      "amenities": "Amenities (comma-separated)",
+      "activeStatus": "Active Status",
+      "notes": "Notes",
+      "notesPlaceholder": "Add internal notes about this bus...",
+      "cancel": "Cancel",
+      "save": "Save Changes"
+    },
+    "seatLayout": {
+      "title": "Seat Layout Editor",
+      "description": "Visually customize the seating arrangement. Click a seat to toggle status.",
+      "front": "Front of Bus",
+      "legend": {
+        "standard": "Standard",
+        "premium": "Premium",
+        "occupied": "Occupied/Blocked"
+      },
+      "reset": "Reset Layout",
+      "update": "Update Layout"
+    },
+    "editList": "Edit List",
+    "types": {
+      "ac": "AC",
+      "nonAc": "Non-AC",
+      "sleeper": "Sleeper",
+      "luxury": "Luxury"
+    },
+    "status": {
+      "active": "Active",
+      "maintenance": "Maintenance",
+      "retired": "Retired"
+    }
+  },
+  "LiveActivity": {
+    "title": "Live Activity & Notifications",
+    "description": "Monitor real-time operational data, manage bus statuses, and control system notifications.",
+    "activeBuses": "Active Buses",
+    "upcomingDepartures": "Upcoming Departures",
+    "seatsBookedToday": "Seats Booked Today",
+    "liveBusFeed": "Live Bus Status Feed",
+    "notificationForm": {
+      "title": "Trigger Push Notification",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Enter notification message...",
+      "recipientLabel": "Recipient (Bus ID / Route ID / User ID)",
+      "recipientPlaceholder": "e.g., Bus 101, Route A",
+      "messageTypeLabel": "Message Type",
+      "messageTypes": {
+        "info": "Information",
+        "warning": "Warning",
+        "emergency": "Emergency Alert"
+      },
+      "sendButton": "Send Notification"
+    },
+    "seatStream": {
+      "title": "Seat Availability Change Stream",
+      "booked": "Booked",
+      "cancelled": "Cancelled",
+      "seats": "Seats"
+    },
+    "systemAlerts": {
+      "title": "System Notifications Center",
+      "allRoutes": "All Routes",
+      "allBuses": "All Buses",
+      "allSeverity": "All Severity",
+      "retry": "Retry"
+    },
+    "busStatus": {
+      "onTime": "On Time",
+      "enRoute": "En Route",
+      "delayed": "Delayed",
+      "arrived": "Arrived",
+      "maintenance": "Maintenance"
+    }
+  },
+  "Packaging": {
+    "receipt": {
+      "title": "BusLink Logistics",
+      "cities": "Douala - Yaoundé - Bafoussam",
+      "date": "Date",
+      "waybill": "Waybill #",
+      "sender": "Sender",
+      "receiver": "Receiver",
+      "description": "Description",
+      "weight": "Weight",
+      "value": "Value",
+      "shippingFee": "Shipping Fee:",
+      "totalPaid": "TOTAL PAID:",
+      "payment": "Payment:",
+      "authSign": "Authorized Signature",
+      "receiverSign": "Receiver Signature",
+      "thankYou": "Thank you for choosing BusLink Logistics."
+    },
+    "waybill": {
+      "reference": "Waybill Reference",
+      "from": "From",
+      "to": "To",
+      "value": "Value:"
+    },
+    "delivery": {
+      "successTitle": "Delivery Confirmed",
+      "successMessage": "Transaction completed successfully.",
+      "printReceipt": "Print Receipt",
+      "nextOrder": "Next Order",
+      "waybillInfo": "Waybill Info",
+      "hide": "Hide",
+      "view": "View",
+      "handoverProtocol": "Handover Protocol",
+      "verifyIdentity": "Verify identity details and collect signature.",
+      "collectorName": "Collector's Full Name",
+      "idType": "ID Type",
+      "idNumber": "ID Number",
+      "idTypes": {
+        "cni": "National ID (CNI)",
+        "passport": "Passport",
+        "license": "Driving License"
+      },
+      "clientSignature": "Client Signature",
+      "clearPad": "Clear Pad",
+      "signHere": "Sign Here",
+      "signInstruction": "Sign above using finger (mobile) or mouse.",
+      "cashCollection": "Cash Collection Required",
+      "collectAmount": "Collect <strong>{amount} XAF</strong> before confirming.",
+      "confirmHandover": "Confirm Handover",
+      "signatureRequired": "Signature required."
+    },
+    "details": {
+      "inTransit": "In Transit",
+      "createdOn": "Created on {date}",
+      "origin": "Origin",
+      "destination": "Destination",
+      "duration": "~{hours} hours",
+      "sender": "Sender",
+      "receiver": "Receiver",
+      "manifest": "Shipment Manifest",
+      "itemDescription": "Item Description",
+      "type": "Type",
+      "weight": "Weight",
+      "declaredValue": "Declared Value",
+      "totals": "Totals",
+      "trackingStatus": "Tracking Status",
+      "updateStatus": "Update Status",
+      "paymentInfo": "Payment Info",
+      "shippingCost": "Shipping Cost",
+      "insurance": "Insurance",
+      "totalPaid": "Total Paid",
+      "paid": "PAID",
+      "cash": "CASH",
+      "timeline": {
+        "departed": "Departed {agency} Agency",
+        "enRoute": "Bus {busId} is en route.",
+        "registered": "Package Registered",
+        "checkedIn": "Checked in by Admin."
+      },
+      "itemTypes": {
+        "general": "General",
+        "electronics": "Electronics"
+      }
+    },
+    "newShipment": {
+      "title": "Register New Shipment",
+      "description": "Create a multi-item waybill and assign to a bus.",
+      "draft": "Draft",
+      "save": "Save Shipment",
+      "customerDetails": "Customer Details",
+      "senderName": "Sender Name",
+      "senderPhone": "Sender Phone",
+      "receiverName": "Receiver Name",
+      "receiverPhone": "Receiver Phone",
+      "packageItems": "Package Items",
+      "itemsAdded": "{count} items added",
+      "type": "Type",
+      "weight": "Kg",
+      "itemDescription": "Description",
+      "itemDetailsPlaceholder": "Item details...",
+      "add": "Add",
+      "tableType": "Type",
+      "tableDesc": "Desc",
+      "tableWeight": "Weight",
+      "tableAction": "Action",
+      "noItems": "No items added yet. Use the form above.",
+      "selectBus": "Select Bus",
+      "orderSummary": "Order Summary",
+      "totalItems": "Total Items",
+      "totalWeight": "Total Weight",
+      "total": "Total",
+      "confirmOrder": "Confirm Order",
+      "itemTypes": {
+        "general": "General",
+        "fragile": "Fragile",
+        "electronics": "Electronics"
+      }
+    },
+    "track": {
+      "activeDeliveries": "Active Deliveries",
+      "searchPlaceholder": "Search Waybill ID...",
+      "inTransit": "In Transit",
+      "waitingDept": "Waiting Dept.",
+      "driver": "Driver: {name}",
+      "tracking": "Tracking #{id}",
+      "estimatedArrival": "Estimated Arrival: {time}",
+      "today": "Today",
+      "deliveryTimeline": "Delivery Timeline",
+      "registered": "Registered",
+      "departed": "Departed",
+      "onRoute": "On Route",
+      "estTimeLeft": "Est {time} left",
+      "arrival": "Arrival",
+      "delayRisk": "Delay Risk",
+      "lowOnTime": "Low (On Time)",
+      "currentStatus": "Current Status",
+      "passing": "Passing {location}"
+    },
+    "allPackages": {
+      "title": "Shipment Management",
+      "description": "Manage and track all registered waybills.",
+      "filter": "Filter",
+      "newShipment": "New Shipment",
+      "searchPlaceholder": "Search by ID, Sender, or Bus...",
+      "waybillId": "Waybill ID",
+      "route": "Route",
+      "clients": "Clients",
+      "status": "Status",
+      "action": "Action",
+      "to": "To: {receiver}",
+      "bulkActions": "Bulk Actions",
+      "clearSelection": "Clear Selection",
+      "selectItems": "Select items to activate",
+      "itemsSelected": "{count} Item(s) Selected",
+      "mixedStatusWarning": "Status updates disabled: Selection contains mixed statuses.",
+      "currentStatus": "Current Status: {status}",
+      "updateStatus": "Update Status",
+      "markInTransit": "Mark In Transit",
+      "markArrived": "Mark Arrived",
+      "markDelivered": "Mark Delivered",
+      "generalActions": "General Actions",
+      "notifyCustomers": "Notify Customers",
+      "printWaybills": "Print Waybills",
+      "deleteSelected": "Delete Selected",
+      "filterPackages": "Filter Packages",
+      "reset": "Reset",
+      "apply": "Apply",
+      "statuses": {
+        "inTransit": "In Transit",
+        "pending": "Pending",
+        "delivered": "Delivered",
+        "arrived": "Arrived",
+        "cancelled": "Cancelled",
+        "lost": "Lost"
+      }
+    }
   }
 }

@@ -163,5 +163,283 @@
       "description": "Votre e-mail a été vérifié. Vous allez être redirigé sous peu.",
       "dashboardButton": "Aller au tableau de bord"
     }
+  },
+  "Profile": {
+    "title": "Profil Administrateur",
+    "description": "Gérez votre profil, vos paramètres et votre activité.",
+    "personalInfo": "Informations Personnelles",
+    "edit": "Modifier",
+    "fullName": "Nom Complet",
+    "emailAddress": "Adresse E-mail",
+    "role": "Rôle",
+    "security": "Sécurité",
+    "changePassword": "Changer le mot de passe",
+    "recentActivity": "Activité Récente"
+  },
+  "Buses": {
+    "title": "Gestion des Bus",
+    "busFleet": "Flotte de Bus",
+    "addNewBus": "Ajouter un nouveau bus",
+    "searchPlaceholder": "Rechercher des bus...",
+    "allBusTypes": "Tous les types de bus",
+    "allAgencies": "Toutes les agences",
+    "seats": "sièges",
+    "busDetails": {
+      "title": "Détails du Bus",
+      "description": "Gérez les informations complètes du bus sélectionné.",
+      "regNumber": "Numéro d'immatriculation",
+      "busType": "Type de bus",
+      "capacity": "Capacité en sièges",
+      "agency": "Agence assignée",
+      "amenities": "Équipements (séparés par des virgules)",
+      "activeStatus": "Statut actif",
+      "notes": "Remarques",
+      "notesPlaceholder": "Ajouter des notes internes sur ce bus...",
+      "cancel": "Annuler",
+      "save": "Enregistrer les modifications"
+    },
+    "seatLayout": {
+      "title": "Éditeur de disposition des sièges",
+      "description": "Personnalisez visuellement la disposition des sièges. Cliquez sur un siège pour changer son statut.",
+      "front": "Avant du bus",
+      "legend": {
+        "standard": "Standard",
+        "premium": "Premium",
+        "occupied": "Occupé/Bloqué"
+      },
+      "reset": "Réinitialiser la disposition",
+      "update": "Mettre à jour la disposition"
+    },
+    "editList": "Modifier la liste",
+    "types": {
+      "ac": "Climatisé",
+      "nonAc": "Non-climatisé",
+      "sleeper": "Couchettes",
+      "luxury": "Luxe"
+    },
+    "status": {
+      "active": "Actif",
+      "maintenance": "En maintenance",
+      "retired": "Retiré"
+    }
+  },
+  "LiveActivity": {
+    "title": "Activité en direct et notifications",
+    "description": "Surveillez les données opérationnelles en temps réel, gérez l'état des bus et contrôlez les notifications système.",
+    "activeBuses": "Bus actifs",
+    "upcomingDepartures": "Départs à venir",
+    "seatsBookedToday": "Sièges réservés aujourd'hui",
+    "liveBusFeed": "Flux de l'état des bus en direct",
+    "notificationForm": {
+      "title": "Déclencher une notification push",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Entrez le message de notification...",
+      "recipientLabel": "Destinataire (ID de bus / ID de route / ID d'utilisateur)",
+      "recipientPlaceholder": "ex: Bus 101, Route A",
+      "messageTypeLabel": "Type de message",
+      "messageTypes": {
+        "info": "Information",
+        "warning": "Avertissement",
+        "emergency": "Alerte d'urgence"
+      },
+      "sendButton": "Envoyer la notification"
+    },
+    "seatStream": {
+      "title": "Flux de changement de disponibilité des sièges",
+      "booked": "Réservé",
+      "cancelled": "Annulé",
+      "seats": "Sièges"
+    },
+    "systemAlerts": {
+      "title": "Centre de notifications système",
+      "allRoutes": "Toutes les routes",
+      "allBuses": "Tous les bus",
+      "allSeverity": "Toutes les gravités",
+      "retry": "Réessayer"
+    },
+    "busStatus": {
+      "onTime": "À l'heure",
+      "enRoute": "En route",
+      "delayed": "Retardé",
+      "arrived": "Arrivé",
+      "maintenance": "En maintenance"
+    }
+  },
+  "Packaging": {
+    "receipt": {
+      "title": "BusLink Logistique",
+      "cities": "Douala - Yaoundé - Bafoussam",
+      "date": "Date",
+      "waybill": "Bordereau #",
+      "sender": "Expéditeur",
+      "receiver": "Destinataire",
+      "description": "Description",
+      "weight": "Poids",
+      "value": "Valeur",
+      "shippingFee": "Frais d'expédition :",
+      "totalPaid": "TOTAL PAYÉ :",
+      "payment": "Paiement :",
+      "authSign": "Signature autorisée",
+      "receiverSign": "Signature du destinataire",
+      "thankYou": "Merci d'avoir choisi BusLink Logistique."
+    },
+    "waybill": {
+      "reference": "Référence du bordereau",
+      "from": "De",
+      "to": "À",
+      "value": "Valeur :"
+    },
+    "delivery": {
+      "successTitle": "Livraison confirmée",
+      "successMessage": "Transaction terminée avec succès.",
+      "printReceipt": "Imprimer le reçu",
+      "nextOrder": "Commande suivante",
+      "waybillInfo": "Infos bordereau",
+      "hide": "Masquer",
+      "view": "Voir",
+      "handoverProtocol": "Protocole de remise",
+      "verifyIdentity": "Vérifiez les détails de l'identité et recueillez la signature.",
+      "collectorName": "Nom complet du collecteur",
+      "idType": "Type de pièce d'identité",
+      "idNumber": "Numéro de pièce d'identité",
+      "idTypes": {
+        "cni": "Carte Nationale d'Identité (CNI)",
+        "passport": "Passeport",
+        "license": "Permis de conduire"
+      },
+      "clientSignature": "Signature du client",
+      "clearPad": "Effacer",
+      "signHere": "Signez ici",
+      "signInstruction": "Signez ci-dessus avec le doigt (mobile) ou la souris.",
+      "cashCollection": "Encaissement requis",
+      "collectAmount": "Encaissez <strong>{amount} XAF</strong> avant de confirmer.",
+      "confirmHandover": "Confirmer la remise",
+      "signatureRequired": "Signature requise."
+    },
+    "details": {
+      "inTransit": "En transit",
+      "createdOn": "Créé le {date}",
+      "origin": "Origine",
+      "destination": "Destination",
+      "duration": "~{hours} heures",
+      "sender": "Expéditeur",
+      "receiver": "Destinataire",
+      "manifest": "Manifeste d'expédition",
+      "itemDescription": "Description de l'article",
+      "type": "Type",
+      "weight": "Poids",
+      "declaredValue": "Valeur déclarée",
+      "totals": "Totaux",
+      "trackingStatus": "Statut de suivi",
+      "updateStatus": "Mettre à jour le statut",
+      "paymentInfo": "Informations de paiement",
+      "shippingCost": "Frais d'expédition",
+      "insurance": "Assurance",
+      "totalPaid": "Total payé",
+      "paid": "PAYÉ",
+      "cash": "ESPÈCES",
+      "timeline": {
+        "departed": "Parti de l'agence de {agency}",
+        "enRoute": "Le bus {busId} est en route.",
+        "registered": "Colis enregistré",
+        "checkedIn": "Enregistré par l'administrateur."
+      },
+      "itemTypes": {
+        "general": "Général",
+        "electronics": "Électronique"
+      }
+    },
+    "newShipment": {
+      "title": "Enregistrer un nouvel envoi",
+      "description": "Créez un bordereau multi-articles et assignez-le à un bus.",
+      "draft": "Brouillon",
+      "save": "Enregistrer l'envoi",
+      "customerDetails": "Détails du client",
+      "senderName": "Nom de l'expéditeur",
+      "senderPhone": "Téléphone de l'expéditeur",
+      "receiverName": "Nom du destinataire",
+      "receiverPhone": "Téléphone du destinataire",
+      "packageItems": "Articles du colis",
+      "itemsAdded": "{count} articles ajoutés",
+      "type": "Type",
+      "weight": "Kg",
+      "itemDescription": "Description",
+      "itemDetailsPlaceholder": "Détails de l'article...",
+      "add": "Ajouter",
+      "tableType": "Type",
+      "tableDesc": "Desc",
+      "tableWeight": "Poids",
+      "tableAction": "Action",
+      "noItems": "Aucun article ajouté pour le moment. Utilisez le formulaire ci-dessus.",
+      "selectBus": "Sélectionner le bus",
+      "orderSummary": "Résumé de la commande",
+      "totalItems": "Articles totaux",
+      "totalWeight": "Poids total",
+      "total": "Total",
+      "confirmOrder": "Confirmer la commande",
+      "itemTypes": {
+        "general": "Général",
+        "fragile": "Fragile",
+        "electronics": "Électronique"
+      }
+    },
+    "track": {
+      "activeDeliveries": "Livraisons actives",
+      "searchPlaceholder": "Rechercher ID Bordereau...",
+      "inTransit": "En transit",
+      "waitingDept": "En attente de départ",
+      "driver": "Chauffeur : {name}",
+      "tracking": "Suivi #{id}",
+      "estimatedArrival": "Arrivée estimée : {time}",
+      "today": "Aujourd'hui",
+      "deliveryTimeline": "Chronologie de la livraison",
+      "registered": "Enregistré",
+      "departed": "Parti",
+      "onRoute": "En route",
+      "estTimeLeft": "Est {time} restantes",
+      "arrival": "Arrivée",
+      "delayRisk": "Risque de retard",
+      "lowOnTime": "Faible (à l'heure)",
+      "currentStatus": "Statut actuel",
+      "passing": "Passe {location}"
+    },
+    "allPackages": {
+      "title": "Gestion des expéditions",
+      "description": "Gérez et suivez tous les bordereaux enregistrés.",
+      "filter": "Filtrer",
+      "newShipment": "Nouvel envoi",
+      "searchPlaceholder": "Rechercher par ID, expéditeur ou bus...",
+      "waybillId": "ID Bordereau",
+      "route": "Route",
+      "clients": "Clients",
+      "status": "Statut",
+      "action": "Action",
+      "to": "À : {receiver}",
+      "bulkActions": "Actions groupées",
+      "clearSelection": "Effacer la sélection",
+      "selectItems": "Sélectionnez des éléments à activer",
+      "itemsSelected": "{count} élément(s) sélectionné(s)",
+      "mixedStatusWarning": "Mises à jour de statut désactivées : la sélection contient des statuts mixtes.",
+      "currentStatus": "Statut actuel : {status}",
+      "updateStatus": "Mettre à jour le statut",
+      "markInTransit": "Marquer en transit",
+      "markArrived": "Marquer comme arrivé",
+      "markDelivered": "Marquer comme livré",
+      "generalActions": "Actions générales",
+      "notifyCustomers": "Notifier les clients",
+      "printWaybills": "Imprimer les bordereaux",
+      "deleteSelected": "Supprimer la sélection",
+      "filterPackages": "Filtrer les colis",
+      "reset": "Réinitialiser",
+      "apply": "Appliquer",
+      "statuses": {
+        "inTransit": "En transit",
+        "pending": "En attente",
+        "delivered": "Livré",
+        "arrived": "Arrivé",
+        "cancelled": "Annulé",
+        "lost": "Perdu"
+      }
+    }
   }
 }
