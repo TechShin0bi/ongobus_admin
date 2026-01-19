@@ -11,6 +11,7 @@ import {
   EyeOff,
   ArrowRight,
   Loader2,
+  User,
 } from "lucide-react";
 import Link from "next/link";
 import clsx from "clsx";
@@ -26,7 +27,7 @@ export default function LoginForm() {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
   const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -40,7 +41,7 @@ export default function LoginForm() {
     setError("");
 
     try {
-      const success = await login(email, password, rememberMe);
+      const success = await login(username, password, rememberMe);
 
       if (success) {
         router.push(returnUrl);
@@ -70,26 +71,27 @@ export default function LoginForm() {
         <form onSubmit={handleLogin} className="space-y-6">
           <div>
             <label
-              htmlFor="email"
+              htmlFor="username"
               className="block text-sm font-medium text-gray-700"
             >
-              {t('emailLabel')}
+              {t('usernameLabel')}
             </label>
             <div className="mt-1 relative rounded-md shadow-sm">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Mail className="h-5 w-5 text-gray-400" />
+              <div className="space-y-2">
+                <div className="relative">
+                  <input
+                    id="username"
+                    type="text"
+                    placeholder={t('usernamePlaceholder')}
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition-colors"
+                    disabled={isLoading}
+                  />
+                  <User className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+                </div>
               </div>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition-colors"
-                placeholder={t('emailPlaceholder')}
-              />
             </div>
           </div>
 
@@ -183,7 +185,7 @@ export default function LoginForm() {
           <div className="flex flex-col space-y-3">
             <button
               onClick={() => {
-                setEmail("admin@buslink.com");
+                setUsername("admin@buslink.com");
                 setPassword("password123");
               }}
               className="w-full flex justify-center items-center gap-2 py-2.5 px-4 border border-indigo-200 rounded-lg shadow-sm text-sm font-medium text-indigo-700 bg-indigo-50 hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all"
@@ -192,7 +194,7 @@ export default function LoginForm() {
             </button>
             <button
               onClick={() => {
-                setEmail("john@example.com");
+                setUsername("john@example.com");
                 setPassword("password123");
               }}
               className="w-full flex justify-center items-center gap-2 py-2.5 px-4 border border-gray-200 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all"

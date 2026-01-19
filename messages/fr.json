@@ -3,8 +3,10 @@
     "title": "Bonjour le monde!"
   },
   "Login": {
-    "welcomeBack": "Content de vous revoir",
-    "enterDetails": "Veuillez entrer vos informations pour vous connecter.",
+    "usernameLabel": "Nom d'utilisateur",
+    "usernamePlaceholder": "Saisissez votre nom d'utilisateur",
+    "welcomeBack": "Bienvenue à nouveau",
+    "enterDetails": "Entrez vos détails pour vous connecter.",
     "noAccount": "Vous n'avez pas de compte ?",
     "signUp": "S'inscrire",
     "emailLabel": "Adresse e-mail",

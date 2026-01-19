@@ -3,6 +3,8 @@
     "title": "Hello world!"
   },
   "Login": {
+    "usernameLabel": "Username",
+    "usernamePlaceholder": "Enter your username",
     "welcomeBack": "Welcome back",
     "enterDetails": "Please enter your details to sign in.",
     "noAccount": "Don't have an account?",

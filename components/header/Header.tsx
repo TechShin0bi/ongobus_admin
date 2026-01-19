@@ -12,7 +12,7 @@ interface HeaderProps {
 
 export default function Header({ toggleSidebar }: HeaderProps) {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
-  const logout = useAuthStore((state) => state.logout);
+  const { logout , user } = useAuthStore();
   
   // 1. Initialize the translation hook (Namespace: 'Header')
   const t = useTranslations('Header');
@@ -76,9 +76,10 @@ export default function Header({ toggleSidebar }: HeaderProps) {
               {isProfileOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-white divide-y divide-gray-100 rounded-lg shadow-lg border border-gray-100 animate-in fade-in slide-in-from-top-2">
                   <div className="px-4 py-3 text-sm text-gray-900">
-                    <div className="font-medium">Alex Morgan</div>
+                    <div className="font-bold">{`${user?.first_name} ${user?.last_name}`}</div>
+                    <div className="font-medium">{user?.username}</div>
                     <div className="truncate text-gray-500">
-                      alex@buslink.com
+                      {user?.email}
                     </div>
                   </div>
                   <ul className="py-2 text-sm text-gray-700">
