@@ -33,6 +33,7 @@
     "signOut": "Sign out"
   },
   "Sidebar": {
+    "packaging": "Packaging",
     "dashboard": "Dashboard",
     "bookings": "Bookings",
     "buses": "Buses",
@@ -375,10 +376,45 @@
       "totalWeight": "Total Weight",
       "total": "Total",
       "confirmOrder": "Confirm Order",
+      "senderNamePlaceholder": "Sender name",
+      "senderPhonePlaceholder": "Sender phone",
+      "receiverNamePlaceholder": "Receiver name",
+      "receiverPhonePlaceholder": "Receiver phone",
+      "additionalNotes": "Additional notes",
+      "additionalNotesPlaceholder": "Additional information...",
+      "removeItem": "Remove item",
+      "noItemsYet": "No items yet",
+      "getStartedByAddingItems": "Get started by adding items",
+      "selectRoute": "Select route",
+      "searchRoutes": "Search routes...",
+      "showingBusesFor": "Showing buses for",
+      "clearFilter": "Clear filter",
+      "noRoutesFound": "No routes found",
+      "noBusesFound": "No buses found",
+      "tryAnotherRoute": "Try another route or check back later",
+      "clearFilters": "Clear filters",
+      "departure": "Departure",
+      "arrival": "Arrival",
+      "selected": "Selected",
+      "items": "Items",
+      "subtotal": "Subtotal",
+      "taxIncluded": "Tax included",
+      "noItemsAdded": "No items added",
+      "addItemsToContinue": "Add items to continue",
+      "readyToShip": "Ready to ship",
+      "reviewAndConfirm": "Review and confirm your order",
+      "promoCode": "Promo Code",
+      "enterPromoCode": "Enter promo code",
+      "apply": "Apply",
+      "secureCheckout": "Secure Checkout",
+      "sslEncryption": "SSL encryption",
+      "seatsAvailable": "seats available",
+      "perItem": "per item",
       "itemTypes": {
         "general": "General",
         "fragile": "Fragile",
-        "electronics": "Electronics"
+        "electronics": "Electronics",
+        "documents": "Documents"
       }
     },
     "track": {
@@ -430,6 +466,9 @@
       "filterPackages": "Filter Packages",
       "reset": "Reset",
       "apply": "Apply",
+      "selectedItems": "Selected Items",
+      "manageSelection": "Manage your selected packages",
+      "done": "Done",
       "statuses": {
         "inTransit": "In Transit",
         "pending": "Pending",
@@ -439,5 +478,13 @@
         "lost": "Lost"
       }
     }
+  },
+  "PackageDetails": {
+    "paymentInfo": "Payment Information",
+    "shippingCost": "Shipping Cost",
+    "insurance": "Insurance",
+    "totalPaid": "Total Paid",
+    "paid": "Paid",
+    "cash": "Cash"
   }
 }

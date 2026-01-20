@@ -2,7 +2,7 @@
 
 import { 
   LayoutDashboard, Ticket, Bus, Map, Tag, Users, 
-  CreditCard, Activity, HelpCircle, Settings 
+  CreditCard, Activity, HelpCircle, Settings, Package 
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -25,6 +25,7 @@ export default function Sidebar({ isOpen }: SidebarProps) {
     { key: t("pricingSeats"), icon: Tag, href: "/pricing" },
     { key: t("agenciesUsers"), icon: Users, href: "/agencies" },
     { key: t("payments"), icon: CreditCard, href: "/payments" },
+    { key: t("packaging"), icon: Package, href: "/packaging" },
     { key: t("liveActivity"), icon: Activity, href: "/live" },
     { key: t("support"), icon: HelpCircle, href: "/support" },
     { key: t("settings"), icon: Settings, href: "/settings" },
