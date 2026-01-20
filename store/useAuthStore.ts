@@ -1,26 +1,19 @@
-// In useAuthStore.ts
 import { loginEndpoint, logoutEndpoint, refreshEndpoint } from '@/src/utils/endpoints';
 import { apiClient } from '@/src/utils/httpClient';
 import { AuthResponse, User } from '@/types/auth';
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 
-
-interface TokenData {
-  access: string;
-  refresh: string;
-  access_expiration: string;
-  refresh_expiration: string;
-}
-
 interface AuthState {
   user: User | null;
   isAuthenticated: boolean;
-  tokens: TokenData | null;
-  login: (email: string, password: string, rememberMe?: boolean) => Promise<boolean>;
+  isRefreshing: boolean;
+  access_expiration: string | null;
+  refresh_expiration: string | null;
+  login: (username: string, password: string) => Promise<boolean>;
   logout: () => Promise<void>;
   refreshToken: () => Promise<boolean>;
-  isRefreshing: boolean;
+  checkAuth: () => Promise<boolean>;
 }
 
 export const useAuthStore = create<AuthState>()(
@@ -28,29 +21,20 @@ export const useAuthStore = create<AuthState>()(
     (set, get) => ({
       user: null,
       isAuthenticated: false,
-      tokens: null,
       isRefreshing: false,
+      access_expiration: null,
+      refresh_expiration: null,
 
       login: async (username: string, password: string, rememberMe = false): Promise<boolean> => {
         try {
-          const response: AuthResponse = await apiClient.post<AuthResponse>(loginEndpoint, { username, password });
-          const { user, ...tokens } = response;
+          const response = await apiClient.post<AuthResponse>(loginEndpoint, { username, password });
           
-          // const userData = {
-          //   id: user.id.toString(),
-          //   name: `${user.first_name} ${user.last_name}`.trim() || user.username,
-          //   email: user.email,
-          //   // avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(user.first_name + ' ' + user.last_name)}`
-          // };
-
           set({ 
-            user,
+            user: response.user,
             isAuthenticated: true,
-            tokens
+            access_expiration: response.access_expiration,
+            refresh_expiration: response.refresh_expiration,
           });
-
-          // Set auth header for subsequent requests
-          apiClient.setHeader('Authorization', `Bearer ${tokens.access}`);
           
           return true;
         } catch (error) {
@@ -59,42 +43,60 @@ export const useAuthStore = create<AuthState>()(
         }
       },
 
-      refreshToken: async () => {
-        // Prevent multiple refresh attempts
-        if (get().isRefreshing) {
+      checkAuth: async (): Promise<boolean> => {
+        const { access_expiration, refresh_expiration, refreshToken, logout } = get();
+        
+        // If no tokens, not authenticated
+        if (!access_expiration || !refresh_expiration) {
           return false;
         }
 
-        const { tokens } = get();
-        if (!tokens?.refresh) {
+        const now = new Date();
+        const accessExp = new Date(access_expiration);
+        const refreshExp = new Date(refresh_expiration);
+
+        // If refresh token is expired, log out
+        if (refreshExp < now) {
+          await logout();
+          return false;
+        }
+
+        // If access token is expired but refresh token is still valid, try to refresh
+        if (accessExp < now) {
+          return await refreshToken();
+        }
+
+        return true;
+      },
+
+      refreshToken: async (): Promise<boolean> => {
+        const { isRefreshing, refresh_expiration } = get();
+        
+        if (isRefreshing) {
+          return false;
+        }
+
+        // If refresh token is expired, don't try to refresh
+        if (refresh_expiration && new Date(refresh_expiration) < new Date()) {
+          get().logout();
           return false;
         }
 
         try {
           set({ isRefreshing: true });
           
-          const response = await apiClient.post<Omit<AuthResponse, 'user'>>(refreshEndpoint, {
-            refresh: tokens.refresh
-          });
-
-          const newTokens = {
-            access: response.access,
-            refresh: tokens.refresh, // Keep the same refresh token
-            access_expiration: response.access_expiration,
-            refresh_expiration: tokens.refresh_expiration
-          };
-
+          const response = await apiClient.post<AuthResponse>(refreshEndpoint);
+          
           set({ 
-            tokens: newTokens,
-            isAuthenticated: true
+            isAuthenticated: true,
+            access_expiration: response.access_expiration,
+            refresh_expiration: response.refresh_expiration,
+            user: response.user
           });
 
-          // Update auth header
-          apiClient.setHeader('Authorization', `Bearer ${newTokens.access}`);
           return true;
         } catch (error) {
-          console.error('Failed to refresh token:', error);
-          // Auto-logout on refresh token failure
+          console.error('Token refresh failed:', error);
           get().logout();
           return false;
         } finally {
@@ -102,52 +104,30 @@ export const useAuthStore = create<AuthState>()(
         }
       },
 
-      logout: async () => {
-        // Clear auth header
-        await apiClient.post(logoutEndpoint)
-        // apiClient.removeHeader('Authorization');
-        // Clear the entire store
-        set({
-          user: null,
-          isAuthenticated: false,
-          tokens: null
-        });
+      logout: async (): Promise<void> => {
+        try {
+          await apiClient.post(logoutEndpoint);
+        } catch (error) {
+          console.error('Logout error:', error);
+        } finally {
+          set({
+            user: null,
+            isAuthenticated: false,
+            access_expiration: null,
+            refresh_expiration: null,
+          });
+        }
       }
     }),
     {
       name: 'auth-storage',
       storage: createJSONStorage(() => localStorage),
-      // Only persist the tokens, not the loading state
-      partialize: (state) => ({ 
-        tokens: state.tokens,
+      partialize: (state) => ({
         user: state.user,
-        isAuthenticated: state.isAuthenticated
+        isAuthenticated: state.isAuthenticated,
+        access_expiration: state.access_expiration,
+        refresh_expiration: state.refresh_expiration
       })
     }
   )
 );
-
-// Add request interceptor to handle token refresh
-// apiClient.interceptors.response.use(
-//   (response) => response,
-//   async (error) => {
-//     const originalRequest = error.config;
-    
-//     // If error is 401 and we haven't already tried to refresh
-//     if (error.response?.status === 401 && !originalRequest._retry) {
-//       originalRequest._retry = true;
-      
-//       const { refreshToken } = useAuthStore.getState();
-//       const refreshed = await refreshToken();
-      
-//       if (refreshed) {
-//         // Update the auth header and retry the original request
-//         const { tokens } = useAuthStore.getState();
-//         originalRequest.headers.Authorization = `Bearer ${tokens?.access}`;
-//         return apiClient(originalRequest);
-//       }
-//     }
-    
-//     return Promise.reject(error);
-//   }
-// );

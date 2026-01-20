@@ -11,10 +11,9 @@ import { useAuthStore } from "../store/useAuthStore";
 const AppLayout = ({ children }: { children: React.ReactNode }) => {
   const [isSidebarOpen, setSidebarOpen] = useState<boolean>(false);
   const [isClient, setIsClient] = useState(false); // To prevent hydration mismatch
-  
+
   // Zustand store hooks
-  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
-  
+  const { isAuthenticated, checkAuth } = useAuthStore();
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -22,25 +21,32 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
   // Set up side effects
   useEffect(() => {
     setIsClient(true);
-    
+
     // Check if we're on a small device and close sidebar if needed
     const checkScreenSize = () => {
       const isSmallScreen = window.innerWidth < 1024; // lg breakpoint in Tailwind
       setSidebarOpen(!isSmallScreen);
     };
-    
+
     // Set initial state
     checkScreenSize();
-    
+
     // Add event listener for window resize
     window.addEventListener('resize', checkScreenSize);
-    
+
     // Cleanup
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
   // Define routes where the Sidebar/Header should NEVER appear
   const isAuthRoute = pathname?.startsWith('/auth');
+  const verifyAuth = async () => {
+    await checkAuth();
+  }
+
+  useEffect(() => {
+    verifyAuth();
+  }, [isAuthenticated])
 
   useEffect(() => {
     if (!isClient) return;
@@ -77,7 +83,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
       <Header toggleSidebar={() => setSidebarOpen(!isSidebarOpen)} />
 
       <Sidebar isOpen={isSidebarOpen} />
-      
+
       <main
         className={clsx(
           "p-4 pt-20 transition-all duration-300 min-h-screen flex flex-col",
@@ -87,9 +93,9 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
         <div className="flex-1">
           {children}
         </div>
-        
+
         <div className="mt-auto pt-6">
-           <Footer />
+          <Footer />
         </div>
       </main>
     </div>

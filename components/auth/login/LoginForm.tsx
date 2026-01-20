@@ -29,7 +29,6 @@ export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [rememberMe, setRememberMe] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   
@@ -41,10 +40,10 @@ export default function LoginForm() {
     setError("");
 
     try {
-      const success = await login(username, password, rememberMe);
+      const success = await login(username, password);
 
       if (success) {
-        router.push(returnUrl);
+        // router.push(returnUrl);
       } else {
         setError(t('invalidCredentials'));
       }
@@ -134,23 +133,6 @@ export default function LoginForm() {
           </div>
 
           <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <input
-                id="remember-me"
-                name="remember-me"
-                type="checkbox"
-                checked={rememberMe}
-                onChange={(e) => setRememberMe(e.target.checked)}
-                className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded cursor-pointer"
-              />
-              <label
-                htmlFor="remember-me"
-                className="ml-2 block text-sm text-gray-900 cursor-pointer select-none"
-              >
-                {t('rememberMe')}
-              </label>
-            </div>
-
             <div className="text-sm">
               <Link
                 href="/auth/forgot-password"
@@ -185,22 +167,14 @@ export default function LoginForm() {
           <div className="flex flex-col space-y-3">
             <button
               onClick={() => {
-                setUsername("admin@buslink.com");
-                setPassword("password123");
+                setUsername("admin");
+                setPassword("1234");
               }}
               className="w-full flex justify-center items-center gap-2 py-2.5 px-4 border border-indigo-200 rounded-lg shadow-sm text-sm font-medium text-indigo-700 bg-indigo-50 hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all"
             >
               {t('loginAsAdmin')}
             </button>
-            <button
-              onClick={() => {
-                setUsername("john@example.com");
-                setPassword("password123");
-              }}
-              className="w-full flex justify-center items-center gap-2 py-2.5 px-4 border border-gray-200 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all"
-            >
-              {t('loginAsUser')}
-            </button>
+            
           </div>
         </div>
       </LeftLogin>
