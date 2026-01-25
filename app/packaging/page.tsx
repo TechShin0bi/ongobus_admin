@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { PackagesActionBar } from "@/components/packaging/all/PackagesActionBar";
 import { PackagesFilterBar } from "@/components/packaging/all/PackagesFilterBar";
 import { PackagesTable } from "@/components/packaging/all/PackagesTable";
 import { BulkActionsSidebar } from "@/components/packaging/all/BulkActionsSidebar";
 import { FilterModal } from "@/components/packaging/all/FilterModal";
+import { Menu, X } from 'lucide-react';
 import clsx from "clsx";
 
 // --- Types ---
@@ -30,12 +31,36 @@ const MOCK_PACKAGES: Package[] = [
 ];
 
 export default function AllPackagesPage() {
-  
   // --- State ---
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [activeFilters, setActiveFilters] = useState({ status: "All", date: "" });
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if mobile view on mount and on window resize
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    
+    // Initial check
+    checkIfMobile();
+    
+    // Add event listener for window resize
+    window.addEventListener('resize', checkIfMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
+
+  // Close mobile sidebar when selection is cleared
+  useEffect(() => {
+    if (selectedIds.length === 0 && isMobileSidebarOpen) {
+      setIsMobileSidebarOpen(false);
+    }
+  }, [selectedIds, isMobileSidebarOpen]);
 
   // --- Logic ---
 
@@ -97,10 +122,19 @@ export default function AllPackagesPage() {
   };
 
   return (
-    <div className="flex h-screen bg-gray-50 overflow-hidden font-sans">
-      <div className="flex-1 flex flex-col h-full overflow-hidden border-r border-gray-200">
-        <div className="p-8 pb-4">
-          <PackagesActionBar setIsFilterOpen={setIsFilterOpen} activeFilters={activeFilters} />
+    <div className="flex h-screen bg-gray-50 overflow-hidden font-sans relative">
+      {/* Main Content */}
+      <div className={clsx(
+        "flex-1 flex flex-col h-full overflow-hidden transition-all duration-300",
+        isMobile && isMobileSidebarOpen ? "-translate-x-80" : ""
+      )}>
+        <div className="p-4 md:p-8 md:pb-4">
+          <PackagesActionBar 
+            setIsFilterOpen={setIsFilterOpen} 
+            activeFilters={activeFilters} 
+            selectedCount={selectedIds.length}
+            onMenuClick={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
+          />
           <PackagesFilterBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         </div>
         <PackagesTable 
@@ -111,7 +145,51 @@ export default function AllPackagesPage() {
           getStatusColor={getStatusColor} 
         />
       </div>
-      <BulkActionsSidebar sidebarState={sidebarState} setSelectedIds={setSelectedIds} />
+
+      {/* Desktop Sidebar */}
+      <div className="hidden lg:block">
+        <BulkActionsSidebar 
+          sidebarState={sidebarState} 
+          setSelectedIds={setSelectedIds} 
+          isMobile={false}
+          isOpen={true}
+          onClose={() => {}}
+        />
+      </div>
+
+      {/* Mobile Sidebar Overlay */}
+      {isMobile && isMobileSidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          onClick={() => setIsMobileSidebarOpen(false)}
+        />
+      )}
+
+      {/* Mobile Sidebar */}
+      <div className={`lg:hidden fixed inset-y-0 right-0 z-50 w-80 transform ${isMobileSidebarOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out`}>
+        <BulkActionsSidebar 
+          sidebarState={sidebarState} 
+          setSelectedIds={setSelectedIds} 
+          isMobile={true}
+          isOpen={isMobileSidebarOpen}
+          onClose={() => setIsMobileSidebarOpen(false)}
+        />
+      </div>
+
+      {/* Mobile FAB */}
+      {isMobile && selectedIds.length > 0 && !isMobileSidebarOpen && (
+        <button
+          onClick={() => setIsMobileSidebarOpen(true)}
+          className="fixed bottom-8 right-6 bg-indigo-600 text-white p-4 rounded-full shadow-lg z-30 lg:hidden flex items-center justify-center"
+          aria-label="Open actions"
+        >
+          <Menu className="w-6 h-6" />
+          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center">
+            {selectedIds.length}
+          </span>
+        </button>
+      )}
+
       <FilterModal 
         isFilterOpen={isFilterOpen} 
         setIsFilterOpen={setIsFilterOpen} 

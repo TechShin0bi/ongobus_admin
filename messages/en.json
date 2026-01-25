@@ -35,6 +35,7 @@
     "signOut": "Sign out"
   },
   "Sidebar": {
+    "packaging": "Packaging",
     "dashboard": "Dashboard",
     "bookings": "Bookings",
     "buses": "Buses",
@@ -377,10 +378,45 @@
       "totalWeight": "Total Weight",
       "total": "Total",
       "confirmOrder": "Confirm Order",
+      "senderNamePlaceholder": "Sender name",
+      "senderPhonePlaceholder": "Sender phone",
+      "receiverNamePlaceholder": "Receiver name",
+      "receiverPhonePlaceholder": "Receiver phone",
+      "additionalNotes": "Additional notes",
+      "additionalNotesPlaceholder": "Additional information...",
+      "removeItem": "Remove item",
+      "noItemsYet": "No items yet",
+      "getStartedByAddingItems": "Get started by adding items",
+      "selectRoute": "Select route",
+      "searchRoutes": "Search routes...",
+      "showingBusesFor": "Showing buses for",
+      "clearFilter": "Clear filter",
+      "noRoutesFound": "No routes found",
+      "noBusesFound": "No buses found",
+      "tryAnotherRoute": "Try another route or check back later",
+      "clearFilters": "Clear filters",
+      "departure": "Departure",
+      "arrival": "Arrival",
+      "selected": "Selected",
+      "items": "Items",
+      "subtotal": "Subtotal",
+      "taxIncluded": "Tax included",
+      "noItemsAdded": "No items added",
+      "addItemsToContinue": "Add items to continue",
+      "readyToShip": "Ready to ship",
+      "reviewAndConfirm": "Review and confirm your order",
+      "promoCode": "Promo Code",
+      "enterPromoCode": "Enter promo code",
+      "apply": "Apply",
+      "secureCheckout": "Secure Checkout",
+      "sslEncryption": "SSL encryption",
+      "seatsAvailable": "seats available",
+      "perItem": "per item",
       "itemTypes": {
         "general": "General",
         "fragile": "Fragile",
-        "electronics": "Electronics"
+        "electronics": "Electronics",
+        "documents": "Documents"
       }
     },
     "track": {
@@ -432,6 +468,9 @@
       "filterPackages": "Filter Packages",
       "reset": "Reset",
       "apply": "Apply",
+      "selectedItems": "Selected Items",
+      "manageSelection": "Manage your selected packages",
+      "done": "Done",
       "statuses": {
         "inTransit": "In Transit",
         "pending": "Pending",
@@ -439,6 +478,177 @@
         "arrived": "Arrived",
         "cancelled": "Cancelled",
         "lost": "Lost"
+      }
+    }
+  },
+  "PackageDetails": {
+    "paymentInfo": "Payment Information",
+    "shippingCost": "Shipping Cost",
+    "insurance": "Insurance",
+    "totalPaid": "Total Paid",
+    "paid": "Paid",
+    "cash": "Cash"
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Manage your system configuration, preferences, and account details.",
+    "tabs": {
+      "general": "General",
+      "branding": "Branding",
+      "financial": "Financial",
+      "policies": "Policies",
+      "users": "Users & Permissions",
+      "integrations": "Integrations",
+      "security": "Security",
+      "audit": "Audit Logs"
+    },
+    "saveButton": {
+      "label": "Save Changes",
+      "icon": "Save"
+    },
+    "footer": "© 2026 BusLink Admin Dashboard. All rights reserved.",
+    "generalTab": {
+      "companyProfile": {
+        "title": "Company Profile",
+        "subtitle": "Manage your organization's basic information.",
+        "fields": {
+          "companyName": "Company Name",
+          "address": "Address",
+          "contactEmail": "Contact Email"
+        },
+        "placeholders": {
+          "companyName": "BusLink Admin Corp.",
+          "address": "123 Main St, Anytown, AT 12345",
+          "contactEmail": "contact@buslink.com"
+        }
+      }
+    },
+    "brandingTab": {
+      "title": "Branding & Appearance",
+      "subtitle": "Customize the look and feel of your customer-facing portal.",
+      "companyLogo": {
+        "title": "Company Logo",
+        "description": "Recommended size: 512x512px (PNG, JPG)",
+        "uploadButton": "Upload New"
+      },
+      "primaryColor": "Primary Brand Color",
+      "portalTheme": "Portal Theme",
+      "themes": {
+        "light": "Light",
+        "dark": "Dark"
+      }
+    },
+    "financialTab": {
+      "title": "Financial Settings",
+      "subtitle": "Configure currency, taxes, and payment gateways.",
+      "defaultCurrency": "Default Currency",
+      "taxRate": "Tax Rate (%)",
+      "paymentGateways": {
+        "title": "Payment Gateways",
+        "status": {
+          "connected": "Connected",
+          "notConnected": "Not Connected"
+        },
+        "actions": {
+          "configure": "Configure",
+          "connect": "Connect"
+        },
+        "providers": {
+          "stripe": "Stripe",
+          "mpesa": "M-Pesa API",
+          "paypal": "PayPal"
+        }
+      }
+    },
+    "policiesTab": {
+      "title": "Legal & Policies",
+      "subtitle": "Set up your terms of service and cancellation policies.",
+      "cancellationPolicy": "Cancellation & Refund Policy",
+      "termsOfService": "Terms of Service URL",
+      "defaultPolicy": "Cancellations made 24 hours before departure are eligible for a 90% refund. No refunds for cancellations within 2 hours of departure.",
+      "defaultTermsUrl": "https://buslink.com/terms"
+    },
+    "usersTab": {
+      "title": "Users & Permissions",
+      "subtitle": "Manage team access and roles.",
+      "inviteButton": "Invite User",
+      "table": {
+        "headers": {
+          "user": "User",
+          "role": "Role",
+          "status": "Status",
+          "action": "Action"
+        },
+        "rows": {
+          "you": "(You)",
+          "statuses": {
+            "active": "Active",
+            "invited": "Invited"
+          },
+          "actions": {
+            "edit": "Edit",
+            "revoke": "Revoke",
+            "locked": "Locked"
+          },
+          "roles": {
+            "owner": "Owner",
+            "manager": "Manager",
+            "supportAgent": "Support Agent"
+          }
+        }
+      }
+    },
+    "integrationsTab": {
+      "title": "Integrations",
+      "subtitle": "Connect external tools and services.",
+      "googleMaps": {
+        "title": "Google Maps Platform",
+        "description": "For route visualization"
+      },
+      "twilioSMS": {
+        "title": "Twilio SMS",
+        "description": "For ticket notifications"
+      },
+      "setupButton": "Setup"
+    },
+    "securityTab": {
+      "title": "Security Settings",
+      "subtitle": "Configure access controls and authentication.",
+      "twoFactorAuth": {
+        "title": "Two-Factor Authentication (2FA)",
+        "description": "Enforce 2FA for all admin accounts."
+      },
+      "passwordPolicy": {
+        "title": "Password Policy",
+        "description": "Require special characters and rotation every 90 days."
+      }
+    },
+    "auditLogsTab": {
+      "searchPlaceholder": "Search in logs...",
+      "title": "Audit Logs",
+      "subtitle": "Track system activities and changes.",
+      "exportButton": "Export Logs",
+      "table": {
+        "headers": {
+          "timestamp": "Timestamp",
+          "user": "User",
+          "action": "Action",
+          "details": "Details",
+          "status":"Status"
+        },
+        "actions": {
+          "updateSettings": "Update Settings",
+          "login": "Login",
+          "backup": "Backup",
+          "userUpdate": "User Updated"
+        },
+        "details": {
+          "userUpdated": "User Updated",
+          "taxRateChange": "Changed tax rate to 16%",
+          "loginSuccess": "Successful login from IP 192.168.1.1",
+          "backupComplete": "Automated database backup completed"
+        },
+        "systemUser": "System"
       }
     }
   }

@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import { Info, AlertTriangle, Truck, CheckCircle, PackageCheck, Bell, Printer, Trash2 } from 'lucide-react';
+import { Info, AlertTriangle, Truck, CheckCircle, PackageCheck, Bell, Printer, Trash2, X } from 'lucide-react';
 import clsx from 'clsx';
 
 interface SidebarState {
@@ -13,17 +13,52 @@ interface SidebarState {
 interface BulkActionsSidebarProps {
   sidebarState: SidebarState;
   setSelectedIds: (ids: string[]) => void;
+  isMobile?: boolean;
+  isOpen?: boolean;
+  onClose?: () => void;
 }
 
-export const BulkActionsSidebar = ({ sidebarState, setSelectedIds }: BulkActionsSidebarProps) => {
+export const BulkActionsSidebar = ({ 
+  sidebarState, 
+  setSelectedIds, 
+  isMobile = false,
+  isOpen = true,
+  onClose = () => {}
+}: BulkActionsSidebarProps) => {
   const t = useTranslations('Packaging.allPackages');
+  
+  // Handle click on the sidebar to prevent it from closing when clicking inside
+  const handleSidebarClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+  };
+
   return (
-  <div className="w-80 bg-white shadow-xl flex flex-col h-full z-20">
+    <div 
+      className={clsx(
+        "bg-white shadow-xl flex flex-col h-full z-20",
+        isMobile 
+          ? "fixed inset-y-0 right-0 w-80 transform transition-transform duration-300 ease-in-out"
+          : "w-80"
+      )}
+      style={isMobile ? { transform: isOpen ? 'translateX(0)' : 'translateX(100%)' } : {}}
+      onClick={handleSidebarClick}
+    >
       
       {/* 1. Header Section */}
-      <div className="p-6 border-b border-gray-200 bg-gray-50">
+      <div className="p-4 sm:p-6 border-b border-gray-200 bg-gray-50">
           <div className="flex justify-between items-center mb-2">
-              <h2 className="text-lg font-bold text-gray-900">{t('bulkActions')}</h2>
+              <div className="flex items-center">
+                {isMobile && (
+                  <button 
+                    onClick={onClose}
+                    className="mr-2 p-1 rounded-full hover:bg-gray-200 transition-colors lg:hidden"
+                    aria-label="Close sidebar"
+                  >
+                    <X className="w-5 h-5 text-gray-600" />
+                  </button>
+                )}
+                <h2 className="text-lg font-bold text-gray-900">{t('bulkActions')}</h2>
+              </div>
               {sidebarState.hasSelection && (
                 <button 
                     onClick={() => setSelectedIds([])} 
@@ -62,8 +97,9 @@ export const BulkActionsSidebar = ({ sidebarState, setSelectedIds }: BulkActions
 
       {/* 2. Actions Container */}
       <div className={clsx(
-          "flex-1 overflow-y-auto p-6 space-y-8 transition-opacity duration-200",
-          !sidebarState.hasSelection ? "opacity-40 pointer-events-none grayscale" : "opacity-100"
+          "flex-1 overflow-y-auto p-4 sm:p-6 space-y-6 sm:space-y-8 transition-all duration-200",
+          !sidebarState.hasSelection ? "opacity-40 pointer-events-none grayscale" : "opacity-100",
+          isMobile ? "pb-24" : "" // Add extra padding at the bottom on mobile for better usability
       )}>
           
           {/* Group A: Status Updates (Conditional on Mixed Status) */}
@@ -136,6 +172,30 @@ export const BulkActionsSidebar = ({ sidebarState, setSelectedIds }: BulkActions
               </div>
           </div>
       </div>
-  </div>
-);
-}
+      
+      {/* Mobile Action Bar */}
+      {isMobile && sidebarState.hasSelection && (
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 shadow-lg z-40">
+          <div className="flex justify-between items-center">
+            <div>
+              <p className="text-sm font-medium text-gray-900">
+                {t('itemsSelected', { count: sidebarState.count })}
+              </p>
+              {!sidebarState.isMixedStatus && (
+                <p className="text-xs text-gray-500">
+                  {t('currentStatus', { status: sidebarState.currentStatus })}
+                </p>
+              )}
+            </div>
+            <button
+              onClick={onClose}
+              className="px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              {t('done')}
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};

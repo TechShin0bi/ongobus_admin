@@ -15,3 +15,16 @@ export interface Seat {
   number: string;
   status: 'standard' | 'premium' | 'occupied' | 'aisle';
 }
+
+export interface AvailableBus {
+  id: number;
+  name: string;
+  route: string;
+  departure: string;
+  arrival: string;
+  time: string;
+  status: 'On Time' | 'Delayed' | 'Full' | 'Available';
+  seats: number;
+  price: string;
+  type: 'Standard' | 'VIP' | 'Express';
+}

@@ -1,6 +1,6 @@
 
 
-import { Bus } from "@/types/buses";
+import { AvailableBus, Bus } from "@/types/buses";
 
 export const BUS_FLEET: Bus[] = [
   {
@@ -34,4 +34,43 @@ export const BUS_FLEET: Bus[] = [
     status: 'Active',
     amenities: 'Beds, Blankets, Water Bottle',
   },
+];
+
+export const availableBuses: AvailableBus[] = [
+  { 
+    id: 1, 
+    name: 'Bus A-101', 
+    route: 'DLA-YAO', 
+    departure: 'Douala', 
+    arrival: 'Yaoundé', 
+    time: '08:00 AM', 
+    status: 'On Time', 
+    seats: 24,
+    price: '5,000 XAF',
+    type: 'Standard'
+  },
+  { 
+    id: 2, 
+    name: 'Bus B-202', 
+    route: 'YAO-DLA', 
+    departure: 'Yaoundé', 
+    arrival: 'Douala', 
+    time: '10:30 AM', 
+    status: 'On Time', 
+    seats: 16,
+    price: '6,500 XAF',
+    type: 'VIP'
+  },
+  { 
+    id: 3, 
+    name: 'Bus C-303', 
+    route: 'DLA-BAF', 
+    departure: 'Douala', 
+    arrival: 'Bafoussam', 
+    time: '01:00 PM', 
+    status: 'Delayed', 
+    seats: 0,
+    price: '7,000 XAF',
+    type: 'Express'
+  }
 ];

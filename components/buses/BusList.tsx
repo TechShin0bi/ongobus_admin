@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Search, Plus, ChevronDown, Edit } from 'lucide-react';
-import { Modal } from '@/components/common/Modal';
+import { Modal } from '@/components/common/ui/Modal';
 import { AddBusForm } from './AddBusForm';
 import clsx from 'clsx';
 import { Bus } from '@/types/buses';

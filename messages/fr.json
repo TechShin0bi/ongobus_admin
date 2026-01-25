@@ -36,6 +36,7 @@
     "signOut": "Se déconnecter"
   },
   "Sidebar": {
+    "packaging": "Conditionnement",
     "dashboard": "Tableau de bord",
     "bookings": "Réservations",
     "buses": "Bus",
@@ -80,8 +81,7 @@
     "fromLastMonth": "par rapport au mois dernier",
     "available": "{current} / {total} Disponible"
   },
-
-    "bookings": {
+  "bookings": {
     "title": "Gestion des Réservations",
     "description": "Affichez, recherchez, filtrez et gérez toutes les réservations de billets de bus dans le système.",
     "allBookings": "Toutes les Réservations",
@@ -379,10 +379,45 @@
       "totalWeight": "Poids total",
       "total": "Total",
       "confirmOrder": "Confirmer la commande",
+      "senderNamePlaceholder": "Nom de l'expéditeur",
+      "senderPhonePlaceholder": "Téléphone de l'expéditeur",
+      "receiverNamePlaceholder": "Nom du destinataire",
+      "receiverPhonePlaceholder": "Téléphone du destinataire",
+      "additionalNotes": "Notes supplémentaires",
+      "additionalNotesPlaceholder": "Informations supplémentaires...",
+      "removeItem": "Supprimer l'article",
+      "noItemsYet": "Aucun article pour le moment",
+      "getStartedByAddingItems": "Commencez par ajouter des articles",
+      "selectRoute": "Sélectionner un trajet",
+      "searchRoutes": "Rechercher des trajets...",
+      "showingBusesFor": "Bus disponibles pour",
+      "clearFilter": "Effacer le filtre",
+      "noRoutesFound": "Aucun trajet trouvé",
+      "noBusesFound": "Aucun bus trouvé",
+      "tryAnotherRoute": "Essayez un autre trajet ou revenez plus tard",
+      "clearFilters": "Effacer les filtres",
+      "departure": "Départ",
+      "arrival": "Arrivée",
+      "selected": "Sélectionné",
+      "items": "Articles",
+      "subtotal": "Sous-total",
+      "taxIncluded": "TVA incluse",
+      "noItemsAdded": "Aucun article ajouté",
+      "addItemsToContinue": "Ajoutez des articles pour continuer",
+      "readyToShip": "Prêt à expédier",
+      "reviewAndConfirm": "Vérifiez et confirmez votre commande",
+      "promoCode": "Code promo",
+      "enterPromoCode": "Entrez un code promo",
+      "apply": "Appliquer",
+      "secureCheckout": "Paiement sécurisé",
+      "sslEncryption": "Chiffrement SSL",
+      "seatsAvailable": "places disponibles",
+      "perItem": "par article",
       "itemTypes": {
         "general": "Général",
         "fragile": "Fragile",
-        "electronics": "Électronique"
+        "electronics": "Électronique",
+        "documents": "Documents"
       }
     },
     "track": {
@@ -434,6 +469,9 @@
       "filterPackages": "Filtrer les colis",
       "reset": "Réinitialiser",
       "apply": "Appliquer",
+      "selectedItems": "Éléments sélectionnés",
+      "manageSelection": "Gérez vos colis sélectionnés",
+      "done": "Terminé",
       "statuses": {
         "inTransit": "En transit",
         "pending": "En attente",
@@ -441,6 +479,177 @@
         "arrived": "Arrivé",
         "cancelled": "Annulé",
         "lost": "Perdu"
+      }
+    }
+  },
+  "PackageDetails": {
+    "paymentInfo": "Informations de paiement",
+    "shippingCost": "Frais d'expédition",
+    "insurance": "Assurance",
+    "totalPaid": "Total payé",
+    "paid": "Payé",
+    "cash": "Espèces"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "subtitle": "Gérez la configuration du système, les préférences et les détails du compte.",
+    "tabs": {
+      "general": "Général",
+      "branding": "Image de marque",
+      "financial": "Financier",
+      "policies": "Politiques",
+      "users": "Utilisateurs & Permissions",
+      "integrations": "Intégrations",
+      "security": "Sécurité",
+      "audit": "Journaux d'audit"
+    },
+    "saveButton": {
+      "label": "Enregistrer les modifications",
+      "icon": "Enregistrer"
+    },
+    "footer": "© 2026 Tableau de bord d'administration BusLink. Tous droits réservés.",
+    "generalTab": {
+      "companyProfile": {
+        "title": "Profil de l'entreprise",
+        "subtitle": "Gérez les informations de base de votre organisation.",
+        "fields": {
+          "companyName": "Nom de l'entreprise",
+          "address": "Adresse",
+          "contactEmail": "Email de contact"
+        },
+        "placeholders": {
+          "companyName": "BusLink Admin Corp.",
+          "address": "123 Rue Principale, Ville, 12345",
+          "contactEmail": "contact@buslink.com"
+        }
+      }
+    },
+    "brandingTab": {
+      "title": "Image de marque et apparence",
+      "subtitle": "Personnalisez l'apparence de votre portail client.",
+      "companyLogo": {
+        "title": "Logo de l'entreprise",
+        "description": "Taille recommandée : 512x512px (PNG, JPG)",
+        "uploadButton": "Télécharger"
+      },
+      "primaryColor": "Couleur principale de la marque",
+      "portalTheme": "Thème du portail",
+      "themes": {
+        "light": "Clair",
+        "dark": "Sombre"
+      }
+    },
+    "financialTab": {
+      "title": "Paramètres financiers",
+      "subtitle": "Configurez la devise, les taxes et les passerelles de paiement.",
+      "defaultCurrency": "Devise par défaut",
+      "taxRate": "Taux de TVA (%)",
+      "paymentGateways": {
+        "title": "Passerelles de paiement",
+        "status": {
+          "connected": "Connecté",
+          "notConnected": "Non connecté"
+        },
+        "actions": {
+          "configure": "Configurer",
+          "connect": "Connecter"
+        },
+        "providers": {
+          "stripe": "Stripe",
+          "mpesa": "API M-Pesa",
+          "paypal": "PayPal"
+        }
+      }
+    },
+    "policiesTab": {
+      "title": "Mentions légales et politiques",
+      "subtitle": "Configurez vos conditions générales et politiques d'annulation.",
+      "cancellationPolicy": "Politique d'annulation et de remboursement",
+      "termsOfService": "URL des conditions d'utilisation",
+      "defaultPolicy": "Les annulations effectuées 24 heures avant le départ donnent droit à un remboursement de 90 %. Aucun remboursement pour les annulations dans les 2 heures précédant le départ.",
+      "defaultTermsUrl": "https://buslink.com/conditions"
+    },
+    "usersTab": {
+      "title": "Utilisateurs et permissions",
+      "subtitle": "Gérez les accès et les rôles de l'équipe.",
+      "inviteButton": "Inviter un utilisateur",
+      "table": {
+        "headers": {
+          "user": "Utilisateur",
+          "role": "Rôle",
+          "status": "Statut",
+          "action": "Action"
+        },
+        "rows": {
+          "you": "(Vous)",
+          "statuses": {
+            "active": "Actif",
+            "invited": "Invité"
+          },
+          "actions": {
+            "edit": "Modifier",
+            "revoke": "Révoquer",
+            "locked": "Verrouillé"
+          },
+          "roles": {
+            "owner": "Propriétaire",
+            "manager": "Gestionnaire",
+            "supportAgent": "Agent de support"
+          }
+        }
+      }
+    },
+    "integrationsTab": {
+      "title": "Intégrations",
+      "subtitle": "Connectez des outils et services externes.",
+      "googleMaps": {
+        "title": "Google Maps Platform",
+        "description": "Pour la visualisation des itinéraires"
+      },
+      "twilioSMS": {
+        "title": "SMS Twilio",
+        "description": "Pour les notifications de billets"
+      },
+      "setupButton": "Configurer"
+    },
+    "securityTab": {
+      "title": "Paramètres de sécurité",
+      "subtitle": "Configurez les contrôles d'accès et l'authentification.",
+      "twoFactorAuth": {
+        "title": "Authentification à deux facteurs (2FA)",
+        "description": "Imposer la 2FA pour tous les comptes administrateurs."
+      },
+      "passwordPolicy": {
+        "title": "Politique de mot de passe",
+        "description": "Exiger des caractères spéciaux et une rotation tous les 90 jours."
+      }
+    },
+    "auditLogsTab": {
+      "searchPlaceholder": "Rechercher dans les journaux...",
+      "title": "Journaux d'audit",
+      "subtitle": "Suivez les activités et les modifications du système.",
+      "exportButton": "Exporter les journaux",
+      "table": {
+        "headers": {
+          "timestamp": "Date et heure",
+          "user": "Utilisateur",
+          "action": "Action",
+          "details": "Détails",
+          "status": "Statut"
+        },
+        "actions": {
+          "updateSettings": "Mise à jour des paramètres",
+          "login": "Connexion",
+          "backup": "Sauvegarde",
+          "userUpdate": "Mise à jour de l'utilisateur"
+        },
+        "details": {
+          "userUpdated": "Utilisateur mis à jour",
+          "taxRateChange": "Taux de TVA modifié à 16%",
+          "loginSuccess": "Connexion réussie depuis l'IP 192.168.1.1",
+          "backupComplete": "Sauvegarde automatisée de la base de données terminée"
+        },
+        "systemUser": "Système"
       }
     }
   }

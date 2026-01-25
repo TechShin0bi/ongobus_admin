@@ -1,0 +1,1 @@
+export type TabType = 'general' | 'branding' | 'financial' | 'policies' | 'users' | 'integrations' | 'security' | 'audit';
