@@ -100,29 +100,5 @@ export const createHttpClient = (baseURL: string) => new HttpClient(baseURL);
 
 // Example usage:
 export const apiClient = createHttpClient('http://localhost:8000/api');
-/*
-
-// GET request
-const getUsers = async () => {
-  try {
-    const users = await api.get<User[]>('/users');
-    return users;
-  } catch (error) {
-    console.error('Error fetching users:', error);
-    throw error;
-  }
-};
-
-// POST request
-const createUser = async (userData: CreateUserDto) => {
-  try {
-    const newUser = await api.post<User>('/users', userData);
-    return newUser;
-  } catch (error) {
-    console.error('Error creating user:', error);
-    throw error;
-  }
-};
-*/
 
 export default HttpClient;

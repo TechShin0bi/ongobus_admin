@@ -34,8 +34,6 @@ export const OrderSummary = ({ items, totalWeight, totalCost }: OrderSummaryProp
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Submitting order...');
   };
 
   return (

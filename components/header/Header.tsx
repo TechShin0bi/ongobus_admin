@@ -6,22 +6,20 @@ import { useAuthStore } from "@/store/useAuthStore";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import clsx from "clsx";
+import HeaderProfileDropDown from "./HeaderProfileDropDown";
 
 interface HeaderProps {
   toggleSidebar: () => void;
 }
 
 export default function Header({ toggleSidebar }: HeaderProps) {
-  const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [showMobileSearch, setShowMobileSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const { logout, user } = useAuthStore();
-  const t = useTranslations('Header');
+  const t = useTranslations("Header");
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle search logic here
-    console.log("Searching for:", searchQuery);
   };
 
   return (
@@ -35,7 +33,7 @@ export default function Header({ toggleSidebar }: HeaderProps) {
               type="button"
               className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
             >
-              <span className="sr-only">{t('openSidebar')}</span>
+              <span className="sr-only">{t("openSidebar")}</span>
               <Menu className="w-5 h-5" />
             </button>
 
@@ -48,10 +46,12 @@ export default function Header({ toggleSidebar }: HeaderProps) {
           </div>
 
           {/* Middle: Search - Hidden on mobile when not active */}
-          <div className={clsx(
-            "absolute left-0 right-0 mx-4 sm:relative sm:mx-0 sm:flex-1 sm:max-w-md",
-            showMobileSearch ? "block" : "hidden sm:block"
-          )}>
+          <div
+            className={clsx(
+              "absolute left-0 right-0 mx-4 sm:relative sm:mx-0 sm:flex-1 sm:max-w-md",
+              showMobileSearch ? "block" : "hidden sm:block",
+            )}
+          >
             <form onSubmit={handleSearch} className="relative">
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -60,7 +60,7 @@ export default function Header({ toggleSidebar }: HeaderProps) {
                 <input
                   type="text"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 p-2"
-                  placeholder={t('searchPlaceholder')}
+                  placeholder={t("searchPlaceholder")}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
@@ -78,6 +78,7 @@ export default function Header({ toggleSidebar }: HeaderProps) {
           </div>
 
           {/* Right: Icons and Profile */}
+
           <div className="flex items-center">
             {/* Mobile Search Toggle */}
             <button
@@ -102,55 +103,7 @@ export default function Header({ toggleSidebar }: HeaderProps) {
             </button>
 
             {/* Profile Dropdown */}
-            <div className="relative ml-2">
-              <button
-                type="button"
-                className="flex items-center text-sm rounded-full focus:ring-2 focus:ring-indigo-300"
-                onClick={() => setIsProfileOpen(!isProfileOpen)}
-              >
-                <span className="sr-only">Open user menu</span>
-                <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center">
-                  <User className="w-5 h-5 text-indigo-600" />
-                </div>
-              </button>
-
-              {/* Dropdown menu */}
-              {isProfileOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white divide-y divide-gray-100 rounded-lg shadow-lg border border-gray-100 animate-in fade-in slide-in-from-top-2">
-                  <div className="px-4 py-3 text-sm text-gray-900">
-                    <div className="font-bold">{`${user?.first_name} ${user?.last_name}`}</div>
-                    <div className="font-medium">{user?.username}</div>
-                    <div className="truncate text-gray-500">
-                      {user?.email}
-                    </div>
-                  </div>
-                  <ul className="py-2 text-sm text-gray-700">
-                    <li>
-                      <Link href="/profile" className="block px-4 py-2 hover:bg-gray-100" onClick={() => setIsProfileOpen(false)}>
-                        {t('profile')}
-                      </Link>
-                    </li>
-                    <li>
-                      <a href="/settings" className="block px-4 py-2 hover:bg-gray-100">
-                        {t('settings')}
-                      </a>
-                    </li>
-                  </ul>
-                  <div className="py-2">
-                    <Link
-                      href="#"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        logout();
-                      }}
-                      className="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
-                    >
-                      {t('signOut')}
-                    </Link>
-                  </div>
-                </div>
-              )}
-            </div>
+            <HeaderProfileDropDown />
           </div>
         </div>
       </div>

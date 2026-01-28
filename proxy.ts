@@ -37,6 +37,5 @@ export function proxy(request: NextRequest) {
     httpOnly: false, // allow client read if needed
   });
 
-  console.log("🌍 Locale stored in cookie:", locale);
   return response;
 }
