@@ -1,5 +1,5 @@
 export type User = {
-  id: number | string;
+  id: string;
   email: string;
   username: string;
   first_name: string;
@@ -10,20 +10,20 @@ export type User = {
   is_staff: boolean;
   date_joined: string;
   agency_details: {
-    id: number;
+    id: string;
     created_at: string;
     updated_at: string;
     user: number;
-    branch: number;
+    branch: string;
     branch_details: {
-      id: number;
+      id: string;
       name: string;
-      agency: number;
+      agency: string;
       agency_name: string;
     };
-    role: number;
+    role: string;
     role_details: {
-      id: number;
+      id: string;
       name: string;
       code: string;
     };

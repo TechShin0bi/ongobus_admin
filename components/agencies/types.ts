@@ -1,29 +1,24 @@
 import { User } from "@/types/auth";
 
+export interface Location {
+  id: string;
+  created_at: string;
+  updated_at: string;
+  latitude: string;
+  longitude: string;
+  is_active: boolean;
+}
 
-export interface NewAgency {
+export interface Agency {
+  id: string;
+  created_at: string;
+  updated_at: string;
   name: string;
   contact: string;
   address: string;
+  image: string;
   agency: string;
-  location: {
-    latitude: string;
-    longitude: string;
-    is_active: boolean;
-  };
-}
-export interface Agency {
-  id: string;
-  name: string;
-  contactEmail: string;
-  contactPerson: string;
-  phone: string;
-  commissionRate: string;
-  status: 'Active' | 'Inactive' | 'Pending';
-  bookings: number;
-  revenueShare: string;
-  cancellationRate: string;
-  routes: string[];
+  location: Location;
 }
 
 export const USERS_DATA: User[] = [

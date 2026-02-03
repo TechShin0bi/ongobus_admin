@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
 export default function AgenciesUsersManagement() {
   const [activeTab, setActiveTab] = useState<'agencies' | 'users'>('agencies');
   const [selectedAgencyId, setSelectedAgencyId] = useState<string>('1');
-  const [selectedUserId, setSelectedUserId] = useState<string>('u1');
+  const [selectedUserId, setSelectedUserId] = useState<string>("");
   const [isAddAgencyModalOpen, setIsAddAgencyModalOpen] = useState(false);
   const [isAddUserModalOpen, setIsAddUserModalOpen] = useState(false);
 
@@ -44,6 +44,8 @@ export default function AgenciesUsersManagement() {
     }
   };
 
+
+
   const handleAddAgencySubmit = async (data: AgencyFormData) => {
     try {
       if (!user) throw new Error('User not authenticated');
@@ -53,7 +55,7 @@ export default function AgenciesUsersManagement() {
       formDataToSend.append('name', data.branchName);
       formDataToSend.append('contact', data.phoneNumber);
       formDataToSend.append('address', data.address);
-      formDataToSend.append('agency', user?.agency_details.id.toString() || "0");
+      formDataToSend.append('agency', user?.agency_details.branch_details.agency || "0");
       formDataToSend.append('latitude', String(data.latitude));
       formDataToSend.append('longitude', String(data.longitude));
       formDataToSend.append('is_active', 'true');
@@ -109,9 +111,13 @@ export default function AgenciesUsersManagement() {
   // Initialize stores from static data if store is empty
   useEffect(() => {
     getAgencies()
+
     setUsers(USERS_DATA)
   }, [getAgencies, setUsers])
 
+  useEffect(() => {
+    setSelectedAgency(agencies[0]?.id || "")
+  }, [selectedAgencyId, setSelectedAgency , agencies])
   return (
     <div>
       <Header
@@ -149,17 +155,13 @@ export default function AgenciesUsersManagement() {
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
         <ListSection
           activeTab={activeTab}
-          agencies={agencies}
-          users={[]}
           selectedAgencyId={selectedAgencyId}
           selectedUserId={selectedUserId}
-          onSelectAgency={setSelectedAgencyId}
           onSelectUser={setSelectedUserId}
           getStatusBadge={getStatusBadge}
           getRoleBadge={getRoleBadge}
         />
-        {/* 
-          <DetailSection
+          {/* <DetailSection
             activeTab={activeTab}
             selectedAgency={selectedAgency}
             selectedUser={selectedUser}

@@ -29,11 +29,8 @@ interface User {
 
 interface ListSectionProps {
   activeTab: 'agencies' | 'users';
-  agencies: Agency[];
-  users: User[];
   selectedAgencyId: string;
   selectedUserId: string;
-  onSelectAgency: (id: string) => void;
   onSelectUser: (id: string) => void;
   getStatusBadge: (status: string) => string;
   getRoleBadge: (role: string) => string;
@@ -41,15 +38,13 @@ interface ListSectionProps {
 
 export default function ListSection({
   activeTab,
-  agencies,
-  users,
   selectedAgencyId,
   selectedUserId,
-  onSelectAgency,
   onSelectUser,
   getStatusBadge,
   getRoleBadge,
 }: ListSectionProps) {
+  const users:any = []  // Placeholder for users, replace with actual data source
   return (
     <div className="xl:col-span-7 bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden flex flex-col min-h-[600px]">
       {/* List Header */}
@@ -71,9 +66,6 @@ export default function ListSection({
       <div className="overflow-x-auto flex-1">
         {activeTab === 'agencies' ? (
           <AgenciesTable
-            agencies={agencies}
-            selectedAgencyId={selectedAgencyId}
-            onSelectAgency={onSelectAgency}
             getStatusBadge={getStatusBadge}
           />
         ) : (

@@ -1,4 +1,4 @@
-import { Agency, NewAgency } from '@/components/agencies/types'
+import { Agency } from '@/components/agencies/types'
 import { agencyUsers, new_agency } from '@/src/utils/endpoints'
 import { apiClient } from '@/src/utils/httpClient'
 import { create } from 'zustand'
@@ -9,7 +9,7 @@ type AgenciesState = {
     selectedAgency?: Agency,
     setAgencies: (items: Agency[]) => void
     setSelectedAgency: (id: string) => void
-    addAgency: (item: NewAgency) => Promise<Agency>
+    addAgency: (item: FormData) => Promise<Agency>
     getAgencies: () => Promise<Agency[]>
     updateAgency: (id: string, patch: Partial<Agency>) => void
     removeAgency: (id: string) => void
@@ -39,9 +39,8 @@ export const useAgenciesStore = create<AgenciesState>((set, get) => ({
     },
     getAgencies: async () => {
         const { user, isAuthenticated } = useAuthStore.getState()
-        console.log('getAgencies user:', user, 'isAuthenticated:', isAuthenticated)
         if (!isAuthenticated || !user) return []
-        const response = await apiClient.get<Agency[]>(agencyUsers(user.agency_details.id.toString()))
+        const response = await apiClient.get<Agency[]>(agencyUsers(user.agency_details.branch_details.agency))
         set({ agencies: response })
         return response
     },
